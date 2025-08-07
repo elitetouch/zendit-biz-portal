@@ -1,0 +1,152 @@
+'use client'
+import React, { useState } from 'react' 
+import DataTable from 'react-data-table-component'
+import { Box, Button, Text } from '@chakra-ui/react'
+import { IconButton } from '@chakra-ui/react'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
+import { useToast } from '@chakra-ui/react'
+//  import imp from '../../Dashboard/OrderDetails/${}'
+
+
+function CourierTable({setDisplayBtn}) {
+  const router = useRouter()
+  const toast = useToast()
+    const AssignFunction =()=>{
+       toast({
+        title: 'Assign Order',
+        description: 'Success! you have just successfully assigned order to Anata Logistics Company, Check Logistics Company Panel To Track Order',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+        position:'top'
+      });
+    }
+  const column=[
+      {
+        name:'Name of Courier',selector:row =><Text className='text-[12px]'>{row.firstName}</Text>
+      },
+     
+      {
+        name:'Location',selector:row =><Text className='text-[12px]'>{row.location}</Text>
+      },
+      {
+        name:'Status',selector:row =>
+        <Box
+        roundedLeft={'full'}
+              roundedRight={'full'}
+              backgroundColor={row.Status==='online'&&'#1EBD5D'||row.Status==='offline'&&'#DEEBFC'}
+        className= {`h-[32px] w-[94px] grid justify-center items-center ${row.status==='online'?'bg-[#1EBD5D]':'bg-[#DEEBFC]'}`} >
+          <Text color={row.Status==='online'&&'white'||row.Status==='offline'&&'#667185'||row.Status==='Ongoing'&&'gray'||row.Status==='Delivered'&&'green'} className='text-[12px] font-semibold'>{row.Status}</Text>
+
+        </Box>
+      },
+      {
+        name:'Action',selector:row =><Box className=' flex'>
+            <Button backgroundColor={'#DEEBFC'} onClick={AssignFunction}
+              width={120}
+              
+              roundedLeft={'full'}
+              roundedRight={'full'}
+              >
+              <Box className=' flex items-center gap-x-[10px]'>
+                <Text className=' text-[12px] text-[#398EF1]'>Assign Package</Text>
+                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 1.67969V6.67969M6 6.67969V11.6797M6 6.67969H11M6 6.67969H1" stroke="#398EF1" stroke-width="2" stroke-linecap="round"/>
+</svg>
+              </Box>
+            </Button>
+        </Box>
+      },  
+  ]
+  const Data=[{
+    id:1,
+    firstName:'Orochimaru',
+    lastName:'Seenju',
+    address:'Iyanapaja',
+    state:'Lagos',
+    city:'Lekki',
+    Status:'online',
+    phoneNumber:'08168848735',
+    location:'Paris Hotel Quarry Rd, Bourdilon, Ikeja Lagos.',
+
+
+  },
+{
+    id:2,
+    firstName:'Juraya',
+    lastName:'Kokichibo',
+    address:'Mile2',
+    state:'Lagos',
+    city:'Lekki',
+    Status:'offline',
+     phoneNumber:'08168848735',
+     location:'Paris Hotel Quarry Rd, Bourdilon, Ikeja Lagos.',
+  },
+  {
+    id:3,
+    firstName:'Orochimaru',
+    lastName:'Seenju',
+    address:'Iyanapaja',
+    state:'Lagos',
+    city:'Lekki',
+   Status:'online',
+     phoneNumber:'08168848735',
+     location:'Paris Hotel Quarry Rd, Bourdilon, Ikeja Lagos.',
+  },
+  {
+    id:4,
+    firstName:'Juraya',
+    lastName:'Kokichibo',
+    address:'Mile2',
+    state:'Lagos',
+    city:'Lekki',
+    Status:'online',
+     phoneNumber:'08168848735',
+     location:'Paris Hotel Quarry Rd, Bourdilon, Ikeja Lagos.',
+  },
+  {
+    id:5,
+ firstName:'Ashirama',
+    lastName:'Sazuke',
+    address:'Mile2',
+    state:'Lagos',
+    city:'Lekki',
+   Status:'online',
+     phoneNumber:'08168848735',
+     location:'Paris Hotel Quarry Rd, Bourdilon, Ikeja Lagos.',
+  },
+
+  ]
+  const customStyles = {
+    headCells: {
+      style: {
+        borderRight:'',
+        backgroundColor:'#E5E7EB',
+        color:'#1F2024', // Add border to column headers
+      },
+    },
+    // cells: {
+    //   style: {
+    //     borderRight:``, // Add border between columns in the body
+    //   },
+    // },
+  };
+  return (
+   <Box className="lg:grid hidden">
+  <Box border="1px" borderColor="gray.300" borderRadius="lg" className="pb-[20px] bg-white rounded-lg">
+    <Box className="overflow-x-auto">
+      <DataTable
+        columns={column}
+        data={Data}
+        highlightOnHover
+        customStyles={customStyles}
+      />
+    </Box>
+  </Box>
+</Box>
+
+  )
+}
+
+export default CourierTable
