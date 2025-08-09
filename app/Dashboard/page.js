@@ -270,22 +270,22 @@ function Page() {
   <MenuList>
    <MenuItem >
     <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Last Week</Text>
+      <Text className=' text-[14px]'>Jumia</Text>
     </Box>
    </MenuItem>
    <MenuItem>
     <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Last Week</Text>
+      <Text className=' text-[14px]'>Jumia</Text>
     </Box>
    </MenuItem>
    <MenuItem>
     <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Last Week</Text>
+      <Text className=' text-[14px]'>Jumia</Text>
     </Box>
    </MenuItem>
    <MenuItem>
     <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Last Week</Text>
+      <Text className=' text-[14px]'>Jumia</Text>
     </Box>
    </MenuItem>
 
