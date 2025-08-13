@@ -8,56 +8,13 @@ import { useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 //  import imp from './Dashboard'
-export default function Home() {
-   const router = useRouter()
-  const toast = useToast()
-  const formdata={
-    email:'',
-    password:''
-  }
-  const [signInDetails, setSignInDetails] = useState(formdata)
-  const [signInLoader, setSignInLoader] = useState(false)
-  const handleSignInChange= (e)=>{
-    setSignInDetails({...signInDetails,[e.target.name]:e.target.value})
-  }
-   const submitLogin=()=>{
-    const formData = new FormData()
-    formData.append('email', signInDetails.email)
-     formData.append('password', signInDetails.password)
-   }
+export const HomeForm=()=>{
+  const router = useRouter()
   return (
-    <div>
-    <div className=" lg:min-h-screen ">
-      {/* <button onClick={()=>router.push('/')}>
-        payment link
-      </button> */}
-      <div className="   grid grid-cols-1 lg:grid-cols-2">
-        <div className="grid justify-center  bg-[#031966] min-h-screen ">
-          <div className=" w-9/12 ml-auto mr-auto">
-             <div className="
-              rounded-lg w-fit pt-[90px]  ">
-              <Image             
-                alt=""
-                src={signIn}
-                className="rounded-lg h-fit "
-              />
-            </div>
-            <div className="grid mt-[100px]">
-              <Text className=" text-white text-center lg:text-left font-bold text-[32px] lg:text-[40px] grid  ">
-                Welcome  Admin!
-              </Text>
-              <p className=" text-[15px] mb-[32px] pt-[80px] font-medium text-white leading-12">
-               Welcome to Zendit Technology  Admin dashboard
-Carefully input your login details to get started on today’s activities.
-              </p>
-            </div>
-           
-          </div>
-        </div>
-        <Box className=" bg-[#FE9534]">
+  <Box className=" bg-[#FE9534]">
         <div className=" lg:mt-[55px] lg:w-8/12 w-full m-auto">
         <Box>
-          <Text className=" text-[30px] text-center font-semibold text-white  mt-[40px]">Log in</Text>
+          <Text className=" lg:text-[30px] text-[20px] text-center font-semibold text-white  mt-[40px]">Log in</Text>
         </Box>
           <div className=" mt-[48px] lg:pt-[80px]">         
               <div>
@@ -163,6 +120,64 @@ Carefully input your login details to get started on today’s activities.
           
         </div>
 
+        </Box>
+  )
+}
+
+export default function Home() {
+   const router = useRouter()
+  const toast = useToast()
+  const formdata={
+    email:'',
+    password:''
+  }
+  const [signInDetails, setSignInDetails] = useState(formdata)
+  const [signInLoader, setSignInLoader] = useState(false)
+  const handleSignInChange= (e)=>{
+    setSignInDetails({...signInDetails,[e.target.name]:e.target.value})
+  }
+   const submitLogin=()=>{
+    const formData = new FormData()
+    formData.append('email', signInDetails.email)
+     formData.append('password', signInDetails.password)
+   }
+  return (
+    <div>
+    <div className=" lg:min-h-screen ">
+      {/* <button onClick={()=>router.push('/')}>
+        payment link
+      </button> */}
+      <div className="   grid grid-cols-1 lg:grid-cols-2">
+        <div className="grid justify-center  bg-[#031966] min-h-screen ">
+          <div className=" lg:w-9/12 lg:ml-auto mr-auto w-11/12 ml-auto">
+             <div className="
+              rounded-lg lg:w-fit lg:pt-[90px] pt-[30px] w-[60px]  ">
+              <Image             
+                alt=""
+                src={signIn}
+                className="rounded-lg h-fit "
+              />
+            </div>
+            <div className="grid lg:mt-[100px] mt-[30px]">
+              <Text className=" text-white text-center lg:text-left font-bold text-[32px] lg:text-[40px] grid  ">
+                Welcome  Admin!
+              </Text>
+              <p className=" text-[15px] mb-[32px] lg:pt-[80px] pt-[20px] font-medium text-white leading-10 lg:leading-12">
+               Welcome to Zendit Technology  Admin dashboard
+Carefully input your login details to get started on today’s activities.
+              </p>
+            </div>
+           
+          </div>
+           <Box borderRadius={'lg'} className=" lg:hidden grid w-11/12 m-auto rounded-lg bg-[#FE9534] pt-[20px] mt-[20px] mb-[30px] pb-[20px]">
+           <Box className=" pl-[10px] pr-[10px]">
+      <HomeForm />
+
+           </Box>
+        </Box>
+        </div>
+        <Box className=" lg:block hidden bg-[#FE9534]">
+      <HomeForm />
         </Box>
       </div>
     </div>

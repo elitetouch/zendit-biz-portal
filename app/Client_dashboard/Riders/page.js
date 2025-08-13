@@ -7,7 +7,7 @@ export const Clients_Overview=()=>{
   return (
 <Box className=' flex gap-x-[10px] pt-[20px] pl-[20px] pr-[20px]'>
        
-        <Box className=' grid grid-cols-3 w-full gap-x-[20px]'>
+        <Box className=' grid lg:grid-cols-3 grid-cols-2 gap-y-[20px] w-full gap-x-[20px]'>
           <Box>
             <DashboardCard
              partners
@@ -21,7 +21,7 @@ export const Clients_Overview=()=>{
 <path d="M8.83203 8.57812H20.3129" stroke="#031966" stroke-width="1.43511" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 }
-            title={'Total Number of Riders'} 
+            title={'Total'} 
             Total_number={'300'}
             />
           </Box>

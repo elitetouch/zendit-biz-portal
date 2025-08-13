@@ -232,7 +232,7 @@ function Page() {
 </Menu>
         </Box>
       <Box className=' mt-[30px] w-full'>
-        <Box className=' grid grid-cols-7 w-full gap-x-[10px]'>
+        <Box className=' grid lg:grid-cols-7 grid-cols-2 gap-y-[20px] w-full gap-x-[10px]'>
           <Box>
             <DashboardCard
             textColor={'#031966'}
@@ -391,7 +391,7 @@ function Page() {
         </Box>
       </Box>
       </Box>
-      <Box className=' flex pl-[10px] pr-[10px] mt-[40px] justify-between gap-x-[10px]'>
+      <Box className=' lg:flex grid pl-[10px] pr-[10px] mt-[40px] lg:justify-between gap-x-[10px]'>
         <Box>
           <Text className=' text-[20px] font-bold'>Riders</Text>
           <Box className=' flex items-center gap-x-[10px] mt-[20px]'>
@@ -468,7 +468,7 @@ function Page() {
            </Box>
            
         </Box>
-         <Box className=' grid grid-cols-3 gap-x-[30px]'>
+         <Box className=' grid lg:grid-cols-3 grid-cols-1 gap-y-[20px] mt-[20px] gap-x-[10px] lg:gap-x-[30px]'>
           {
             Data.map((item)=>{
               return (
@@ -489,8 +489,14 @@ function Page() {
 
       </Box>
       <Box className=' mt-[50px]'>
-        <Tabs>
-         <TabList borderBottom={'none'} flex={true} justifyContent={'space-between'} pl={10} pr={10}>
+            <Tabs>
+                <TabList    borderBottom="none"
+         display="grid"
+         gridTemplateColumns="repeat(auto-fit, minmax(150px, 1fr))"
+         gap={2}
+         pl={4}
+         pr={4}
+         >
     <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>All Orders</h1></Tab>
      <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Assigned</h1></Tab>
       <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Unassigned</h1></Tab>
@@ -498,7 +504,7 @@ function Page() {
         <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Returned</h1></Tab>
     <Tab marginLeft={5}> <h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Delivered</h1></Tab>
   </TabList>
- <Box className=' w-11/12 m-auto mt-[20px]'>
+ <Box className=' pl-[20px] pr-[20px] mt-[20px]'>
         <Box className=' flex items-center gap-x-[10px]'>
           <Box>
             <Text className=' text-[18px] text-[#332F2F] font-semibold'>Pick up details</Text>
@@ -514,17 +520,17 @@ function Page() {
       </Box>
    
 <TabPanels>
-  <TabPanel>
-   <Box className=' w-11/12 m-auto pt-[20px]'>
-        <Box className=' mt-[20px]'>
+  <TabPanel >
+   <Box className='lg:pl-[20px] lg:pr-[20px] pl-[10px] pr-[10px] lg:pt-[20px] pt-[10px]'>
+        <Box className=' mt-[10px] lg:mt-[20px] w-full'>
           <OrdersTable />
         </Box>
       </Box>
       <Box
         shadow={'lg'}
         roundedBottom={'lg'}
-        className=' mt-[40px] w-11/12 m-auto'>
-          <Box className=' pl-[20px] pr-[20px]'>
+        className=' mt-[40px] pl-[20px] pr-[20px]'>
+          <Box className=''>
             <Box className=' mt-[20px] justify-between flex items-center'>
               <Box>
                 <Text className=' font-semibold'>Package Overview</Text>
@@ -537,11 +543,11 @@ function Page() {
               </Box>
             </Box>
             <Box className=' mt-[20px] justify-between flex items-center'>
-              <Text className=' font-semibold'>
-                Total package Received (90)
+              <Text className='font-semibold lg:text-[18px] text-[14px]'>
+                 Package Received (90)
               </Text>
-              <Text className=' font-semibold'>
-                Total package Assigned (90)
+              <Text className='font-semibold lg:text-[18px] text-[14px]'>
+                 Package Assigned (90)
               </Text>
             </Box>
             <Box className=' mt-[30px] pb-[30px]'>
@@ -555,7 +561,7 @@ function Page() {
     <ClientAssignedTable />
   </TabPanel>
   <TabPanel>
-    <Box className=' mt-[20px] w-11/12 m-auto'>
+    <Box className=' mt-[20px] pl-[20px] pr-[20px]'>
           <OrdersTable />
         </Box>
   </TabPanel>

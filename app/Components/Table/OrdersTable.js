@@ -143,25 +143,39 @@ function OrdersTable({setDisplayBtn}) {
     // },
   };
   return (
-   <Box className="lg:grid hidden">
-  <Box border="1px" borderColor="gray.300" borderRadius="lg" className="pb-[20px] bg-white rounded-lg">
+  <Box className="grid gap-4">
+  <Box
+    border="1px"
+    borderColor="gray.300"
+    borderRadius="lg"
+    className="pb-[20px] bg-white rounded-lg w-full overflow-hidden"
+  >
+    {/* Table container with horizontal scroll on small devices */}
     <Box className="overflow-x-auto">
       <DataTable
         columns={column}
         data={Data}
         highlightOnHover
         customStyles={customStyles}
-      
+        responsive
       />
     </Box>
   </Box>
-  <Box>
-      <Pagination />
-    </Box>
-  
-         {showModal && <CourierModal setOpenSuccessfull={toogleModal}  openSuccessfull={showModal} />}
-        
+
+  {/* Pagination stays below table */}
+  <Box className="">
+    <Pagination />
+  </Box>
+
+  {/* Modal stays above content */}
+  {showModal && (
+    <CourierModal
+      setOpenSuccessfull={toogleModal}
+      openSuccessfull={showModal}
+    />
+  )}
 </Box>
+
 
   )
 }

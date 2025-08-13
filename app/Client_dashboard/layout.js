@@ -1,15 +1,39 @@
+'use client'
 import Wrapper from "../Components/Wrapper/Wrapper";
 import { Box } from "@chakra-ui/react";
 import DesktopSideBar from "../Components/Sidebar/DesktopSideBar";
 import DesktopTopBar from "../Components/Navbar/DesktopTopBar";
+import DashboardMobileSide from "../Components/Sidebar/DashboardMobileSide";
+import MobileTopBar from "../Components/Navbar/MobileTopBar";
+import { 
+  useDisclosure, } from '@chakra-ui/react'
+  import { useState } from "react";
 export default function RootLayout({ children }) {
+   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [toogleSideMenu, setToogleSideMenu] = useState(false)
+   const toogleFunc=()=>{
+     setToogleSideMenu(!toogleSideMenu)
+   //  toogleMobile()
+   }
   return (
-             <Box className=' flex'>
-                  <Box className=" fixed">
+            <Box className=' lg:flex w-full '>
+                  <Box className=" lg:fixed lg:grid hidden">
                     <DesktopSideBar client />
                   </Box>
-                   <Box className=' flex-1 pl-[250px]'>
+                  <Box className=" lg:hidden w-full">
+                  <DashboardMobileSide onClose={onClose} isOpen={isOpen}/>
+
+                  </Box>
+                  
+                   <Box className=' lg:flex-1 lg:pl-[250px] grid w-full'>
+                    <Box className=" lg:hidden grid w-full bg-amber-600">
+                      <MobileTopBar
+                      toogleSideNav={!isOpen?onOpen:onClose}
+                      />
+                    </Box>
+                    <Box className=" lg:grid hidden">
                     <DesktopTopBar />
+                    </Box>
                     {children}
                    </Box>
                 </Box>

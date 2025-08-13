@@ -14,52 +14,64 @@ const DownFunctions=({
   sub,
   icon
 })=>{
+  //  <Box key={item.id} className=' w-full'>
+  //             <Button  height={50} width={'full'}
+  //             onClick={()=>{router.push(item.destination)}}
+  //             color={'#332F2F'}
+  //             backgroundColor={'transparent'}
+  //             _hover={{
+  //               backgroundColor:'#FE9534',
+  //               color:'white'
+  //             }}
+  //             >
+  //             <Box className=' flex items-center w-11/12 m-auto gap-x-[10px]' >
+  //               <Box>
+  //               {item.icon}
+
+  //               </Box>
+  //                 <Text>{item.title}</Text>
+  //             </Box>
+
+  //             </Button>
+  //             </Box>
   return (
-    <Box>
-       <Box 
+    <Box className=' w-full'>
+       <Button  height={50} width={'full'}
        onClick={ButtonFunc}
-      // height={50} width={'full'}
-              color={'black'}
+       color={'#332F2F'}
               backgroundColor={'transparent'}
               _hover={{
-                backgroundColor:'#031966',
-                shadow:'lg'
+                backgroundColor:'#FE9534',
+                color:'white'
               }}
-              borderRadius={5}
-              className=' h-[50px] grid items-center '
               >
-                <Box className=' flex items-center justify-between w-11/12 m-auto'>
-              <Box className=' flex items-center w-11/12 m-auto gap-x-[5px]' >
+                <Box className='flex items-center w-11/12 m-auto gap-x-[10px]'>
+              <Box className=' flex items-center w-full m-auto gap-x-[5px]' >
                 <Box>
               {icon}
 
                 </Box>
                   <Text>{title}</Text>
               </Box>
-                {sub && <Box>
-                    <IconButton
-                      icon={
+                {sub && <Box>                 
                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.832812" y="0.7" width="24.6" height="24.6" rx="12.3" stroke="#332F2F" stroke-width="0.6"/>
 <path d="M12.088 18.126C11.5467 18.126 11.0007 18.0467 10.45 17.888C9.90867 17.7293 9.43733 17.496 9.036 17.188C8.91467 17.104 8.83533 17.0107 8.798 16.908C8.76067 16.796 8.75133 16.6933 8.77 16.6C8.798 16.4973 8.84933 16.4133 8.924 16.348C8.99867 16.2733 9.08733 16.2313 9.19 16.222C9.302 16.2127 9.42333 16.25 9.554 16.334C9.96467 16.6047 10.3753 16.8007 10.786 16.922C11.1967 17.0433 11.6213 17.104 12.06 17.104C12.536 17.104 12.9373 17.034 13.264 16.894C13.5907 16.754 13.838 16.5487 14.006 16.278C14.174 15.998 14.258 15.6573 14.258 15.256C14.258 14.6773 14.0667 14.2387 13.684 13.94C13.3013 13.6413 12.746 13.492 12.018 13.492H11.024C10.8467 13.492 10.7113 13.45 10.618 13.366C10.5247 13.2727 10.478 13.1467 10.478 12.988C10.478 12.8387 10.5247 12.722 10.618 12.638C10.7113 12.5447 10.8467 12.498 11.024 12.498H11.92C12.3493 12.498 12.7133 12.4233 13.012 12.274C13.32 12.1247 13.558 11.9147 13.726 11.644C13.894 11.364 13.978 11.028 13.978 10.636C13.978 10.1133 13.81 9.71667 13.474 9.446C13.138 9.166 12.6527 9.026 12.018 9.026C11.598 9.026 11.2013 9.08667 10.828 9.208C10.4547 9.32933 10.086 9.53467 9.722 9.824C9.61 9.908 9.498 9.95 9.386 9.95C9.28333 9.94067 9.19467 9.908 9.12 9.852C9.05467 9.78667 9.00333 9.70267 8.966 9.6C8.938 9.49733 8.94267 9.39467 8.98 9.292C9.01733 9.18 9.09667 9.07733 9.218 8.984C9.59133 8.66667 10.03 8.424 10.534 8.256C11.038 8.088 11.556 8.004 12.088 8.004C12.7227 8.004 13.264 8.10667 13.712 8.312C14.1693 8.508 14.5193 8.79733 14.762 9.18C15.0047 9.55333 15.126 10.006 15.126 10.538C15.126 10.9393 15.0467 11.308 14.888 11.644C14.7387 11.9707 14.524 12.2507 14.244 12.484C13.9733 12.7173 13.642 12.8853 13.25 12.988V12.834C13.9313 12.946 14.4587 13.226 14.832 13.674C15.2147 14.1127 15.406 14.668 15.406 15.34C15.406 15.9093 15.2707 16.404 15 16.824C14.7387 17.2347 14.3607 17.5567 13.866 17.79C13.3713 18.014 12.7787 18.126 12.088 18.126Z" fill="#332F2F"/>
 </svg>
-                      }
-                      backgroundColor={'transparent'}
-                      />
                 </Box>}
                 </Box>
 
-              </Box>
+              </Button>
     </Box>
   )
 }
 function DesktopSideBar({client}) {
   const router = useRouter()
   return (
-    <Box shadow={'md'}  borderColor="gray.300" className=' w-[250px] min-h-screen '>
+    <Box shadow={'md'}  borderColor="gray.300" className=' lg:w-[250px] min-h-screen '>
       <Box className=' flex flex-col justify-between min-h-screen'>
         <Box>
-      <Box className=' w-10/12 m-auto mt-[20px]'>
+      <Box className=' w-10/12 m-auto lg:mt-[20px] mt-[15px]'>
       <Box className=' flex justify-between gap-x-[5px] items-center'>
         <Box className=' flex items-center gap-x-[5px]'>
           <Image src={Logo} alt='' />
@@ -70,7 +82,7 @@ function DesktopSideBar({client}) {
         </Box>
         <Box>
           <IconButton
-          icon={<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          icon={<svg width="14" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.93464 13.5L0.417969 11.9833L5.37422 7L0.417969 2.01667L1.93464 0.5L8.43464 7L1.93464 13.5ZM9.08464 13.5L7.56797 11.9833L12.5242 7L7.56797 2.01667L9.08464 0.5L15.5846 7L9.08464 13.5Z" fill="#031966"/>
 </svg>
 }
@@ -80,7 +92,7 @@ function DesktopSideBar({client}) {
       </Box>
       </Box>
       <Box></Box>
-      <Box className=' grid gap-y-[20px] w-11/12 m-auto pt-[50px]'>
+      <Box className=' grid gap-y-[20px] w-11/12 m-auto lg:pt-[50px] pt-[30px]'>
         {
           client?ClientNavData.map((item)=>{
             return(
@@ -134,7 +146,7 @@ function DesktopSideBar({client}) {
 
         </Box>
 
-      <Box className=' w-11/12 m-auto grid gap-y-[10px]'>
+      <Box className='  grid gap-y-[20px] w-11/12 m-auto pt-[50px] pb-[30px]'>
         <DownFunctions
         icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.92578 12.8794V11.1194C1.92578 10.0794 2.74504 9.21945 3.75706 9.21945C5.5016 9.21945 6.21483 7.93945 5.33775 6.36945C4.83655 5.46945 5.13534 4.29945 6.01243 3.77945L7.67986 2.78945C8.44129 2.31945 9.4244 2.59945 9.8774 3.38945L9.98342 3.57945C10.8509 5.14945 12.2773 5.14945 13.1544 3.57945L13.2604 3.38945C13.7135 2.59945 14.6966 2.31945 15.458 2.78945L17.1254 3.77945C18.0025 4.29945 18.3013 5.46945 17.8001 6.36945C16.923 7.93945 17.6362 9.21945 19.3808 9.21945C20.3832 9.21945 21.2121 10.0694 21.2121 11.1194V12.8794C21.2121 13.9194 20.3928 14.7794 19.3808 14.7794C17.6362 14.7794 16.923 16.0594 17.8001 17.6294C18.3013 18.5394 18.0025 19.6994 17.1254 20.2194L15.458 21.2094C14.6966 21.6794 13.7135 21.3995 13.2604 20.6094L13.1544 20.4194C12.287 18.8494 10.8605 18.8494 9.98342 20.4194L9.8774 20.6094C9.4244 21.3995 8.44129 21.6794 7.67986 21.2094L6.01243 20.2194C5.13534 19.6994 4.83655 18.5294 5.33775 17.6294C6.21483 16.0594 5.5016 14.7794 3.75706 14.7794C2.74504 14.7794 1.92578 13.9194 1.92578 12.8794Z" fill="white" stroke="#332F2F" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>

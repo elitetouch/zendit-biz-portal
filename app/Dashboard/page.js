@@ -17,7 +17,7 @@ export const Pagination =()=>{
   return (
      <Box className=' mt-[20px] flex items-center justify-between'>
           <Box>
-            <Text className=' text-[14px]'>
+            <Text className=' lg:text-[14px] text-[12px]'>
               Showing <span className=' text-[#031966]'>001 - 008</span>  from <span className=' text-[#031966]'>100</span> data
             </Text>
           </Box>
@@ -30,21 +30,21 @@ export const Pagination =()=>{
 </svg>
             </Box>
             <Box>
-               <Box backgroundColor={'#031966'} color={'white'} className=' h-[40px] w-[40px] text-[14px] rounded-full grid justify-center items-center'>
+               <Box backgroundColor={'#031966'} color={'white'} className=' h-[40px] w-[40px] lg:text-[14px] text-[12px] rounded-full grid justify-center items-center'>
                 <Text>1</Text>
                </Box>
             </Box>
             <Box >
               <Box
               border="1px" borderColor="gray.300"
-              backgroundColor={'transparent'} color={'black'} className=' h-[40px] w-[40px] text-[14px] rounded-full grid justify-center items-center'>
+              backgroundColor={'transparent'} color={'black'} className=' h-[40px] w-[40px] lg:text-[14px] text-[12px] rounded-full grid justify-center items-center'>
                 <Text>2</Text>
                </Box>
             </Box>
              <Box>
               <Box
               border="1px" borderColor="gray.300"
-              backgroundColor={'transparent'} color={'black'} className=' h-[40px] w-[40px] text-[14px] rounded-full grid justify-center items-center'>
+              backgroundColor={'transparent'} color={'black'} className=' h-[40px] w-[40px] lg:text-[14px] text-[12px] rounded-full grid justify-center items-center'>
                 <Text>3</Text>
                </Box>
              </Box>
@@ -68,9 +68,9 @@ function Page() {
   const router = useRouter()
   return (
     <div>
-      <Box className=' w-11/12 m-auto mt-[20px]'>
-      <Box className=' flex gap-x-[10px]'>
-        <Box>
+      <Box className=' pl-[20px] pr-[20px] m-auto mt-[20px]'>
+      <Box className=' flex gap-x-[5px] lg:gap-x-[10px]'>
+        <Box className=' lg:block hidden'>
           <Menu>
   <MenuButton  as={'button'}>
     {/* <Button backgroundColor={'#007460'} color={'white'}> */}
@@ -85,7 +85,7 @@ function Page() {
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.66797 0.103516C6.12821 0.103516 6.5013 0.476612 6.5013 0.936849V1.77018H11.5013V0.936849C11.5013 0.476612 11.8744 0.103516 12.3346 0.103516C12.7949 0.103516 13.168 0.476612 13.168 0.936849V1.77018H14.0013C15.8423 1.77018 17.3346 3.26257 17.3346 5.10352V14.2702C17.3346 16.1111 15.8423 17.6035 14.0013 17.6035H4.0013C2.16035 17.6035 0.667969 16.1111 0.667969 14.2702V5.10352C0.667969 3.26257 2.16035 1.77018 4.0013 1.77018H4.83464V0.936849C4.83464 0.476612 5.20773 0.103516 5.66797 0.103516ZM11.5013 3.43685C11.5013 3.89709 11.8744 4.27018 12.3346 4.27018C12.7949 4.27018 13.168 3.89709 13.168 3.43685H14.0013C14.9218 3.43685 15.668 4.18304 15.668 5.10352V5.52018H2.33464V5.10352C2.33464 4.18304 3.08083 3.43685 4.0013 3.43685H4.83464C4.83464 3.89709 5.20773 4.27018 5.66797 4.27018C6.12821 4.27018 6.5013 3.89709 6.5013 3.43685H11.5013ZM15.668 7.18685H2.33464V14.2702C2.33464 15.1907 3.08083 15.9368 4.0013 15.9368H14.0013C14.9218 15.9368 15.668 15.1907 15.668 14.2702V7.18685Z" fill="#344054"/>
 </svg>
- <Text className=' text-[14px]'>This week</Text> 
+ <Text className=' lg:text-[14px] text-[12px]'>This week</Text> 
 <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.344229 1.54368L6.85642 7.67281C7.49817 8.27681 8.49922 8.27681 9.14097 7.67281L15.6532 1.54369C15.9883 1.22826 16.0043 0.70086 15.6889 0.365715C15.3734 0.0305703 14.846 0.0145891 14.5109 0.330019L7.9987 6.45915L1.4865 0.330018C1.15136 0.0145879 0.623964 0.030569 0.308534 0.365714C-0.00689679 0.700859 0.00908518 1.22825 0.344229 1.54368Z" fill="#667185"/>
 </svg>
@@ -97,12 +97,12 @@ function Page() {
   </MenuButton>
    <MenuList>
     <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Last Week</Text>
+      <Text className=' lg:text-[14px] text-[12px]'>Last Week</Text>
     </Box>
    </MenuList>
 </Menu>
         </Box>
-        <Box className=' grid grid-cols-5 w-full gap-x-[20px]'>
+        <Box className=' grid lg:grid-cols-5 grid-cols-2 gap-y-[20px] w-full gap-x-[20px]'>
           <Box>
             <DashboardCard
             textColor={'#031966'}
@@ -215,99 +215,27 @@ function Page() {
         </Box>
       </Box>
       </Box>
-      <Box className=' mt-[50px]'>
+      <Box className=' lg:mt-[50px] mt-[20px] '>
         <Tabs>
-         <TabList borderBottom={'none'} flex={true} justifyContent={'space-between'} pl={10} pr={10}>
-    <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>All Orders</h1></Tab>
-     <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Assigned</h1></Tab>
-      <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Unassigned</h1></Tab>
-       <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Picked</h1></Tab>
-        <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Returned</h1></Tab>
-    <Tab marginLeft={5}> <h1 className=' lg:text-[16px] text-[14px] text-[#031966]'>Delivered</h1></Tab>
+         <TabList    borderBottom="none"
+  display="grid"
+  gridTemplateColumns="repeat(auto-fit, minmax(150px, 1fr))"
+  gap={2}
+  pl={4}
+  pr={4}
+  >
+    <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966] text-center'>All Orders</h1></Tab>
+     <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966] text-center'>Assigned</h1></Tab>
+      <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966] text-center'>Unassigned</h1></Tab>
+       <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966] text-center'>Picked</h1></Tab>
+        <Tab><h1 className=' lg:text-[16px] text-[14px] text-[#031966] text-center'>Returned</h1></Tab>
+    <Tab ><h1 className=' lg:text-[16px] text-[14px] text-[#031966] text-center'>Delivered</h1></Tab>
   </TabList>
- <Box className=' w-11/12 m-auto mt-[20px]'>
-        <Box className=' flex items-center gap-x-[10px]'>
-          <Box>
-            <Text className=' text-[18px] text-[#332F2F] font-semibold'>Pick up details</Text>
-          </Box>
-          <Box
-           border={'1px'}
-           borderColor={'gray.200'}
-     borderRadius="lg" 
-          className=' grid items-center justify-center h-[31px] w-[69px]'>
-            <Text className=' text-[14px]'>Live data</Text>
-          </Box>
-        </Box>
-        <Box className=' flex items-center gap-x-[20px] mt-[30px]'>
-          <Box 
-          borderBottom="2px" borderColor="#F7941D"
-          className=' w-fit'
-          >
-            <Text className=' pb-[2px] text-[#F7941D]'>Jumia</Text>
-          </Box>
-          <Box>
-            <Menu>
-  <MenuButton  as={'button'}>
-    {/* <Button backgroundColor={'#007460'} color={'white'}> */}
-    <Box
-    //border="1px" borderColor="gray.300"
-    //className='h-[57px] w-[181px] justify-center rounded-lg grid items-center'
-    >
-    <Box  
-    border="1px" borderColor="gray.300"
-    color={'black'} cursor={'pointer'} className=' h-[44px] w-[364px] rounded-lg grid items-center'>
-      <Box className=' flex items-center gap-x-[10px] justify-between pl-[10px] pr-[10px]'>
- <Text className=' text-[14px]'>Select Partner</Text> 
-<svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.344229 1.54368L6.85642 7.67281C7.49817 8.27681 8.49922 8.27681 9.14097 7.67281L15.6532 1.54369C15.9883 1.22826 16.0043 0.70086 15.6889 0.365715C15.3734 0.0305703 14.846 0.0145891 14.5109 0.330019L7.9987 6.45915L1.4865 0.330018C1.15136 0.0145879 0.623964 0.030569 0.308534 0.365714C-0.00689679 0.700859 0.00908518 1.22825 0.344229 1.54368Z" fill="#667185"/>
-</svg>
-      </Box>
-    </Box>
-
-    </Box>
-                        {/* </Button> */}
-  </MenuButton>
-  <MenuList>
-   <MenuItem >
-    <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Jumia</Text>
-    </Box>
-   </MenuItem>
-   <MenuItem>
-    <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Jumia</Text>
-    </Box>
-   </MenuItem>
-   <MenuItem>
-    <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Jumia</Text>
-    </Box>
-   </MenuItem>
-   <MenuItem>
-    <Box className=' pl-[2px]'>
-      <Text className=' text-[14px]'>Jumia</Text>
-    </Box>
-   </MenuItem>
-
-  </MenuList>
-</Menu>
-          </Box>
-          <Box className=' flex items-center gap-x-[20px]'>
-            <Box className=' bg-[#EBEDF0] h-[44px] w-[49px] rounded-lg grid items-center justify-center'>
-              <Text className=' text-[12px]'>All</Text>
-            </Box>
-            <Box>
-              <Select placeholder='Lagos'>
-                <option>Abuja</option>
-              </Select>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+ 
    
 <TabPanels>
   <TabPanel>
-   <Box className=' w-11/12 m-auto pt-[20px]'>
+   <Box className=' lg:w-11/12 lg:m-auto pt-[20px]'>
         <Box className=' mt-[20px]'>
           <OrdersTable />
         </Box>
@@ -315,8 +243,8 @@ function Page() {
       <Box
         shadow={'lg'}
         roundedBottom={'lg'}
-        className=' mt-[40px] w-11/12 m-auto'>
-          <Box className=' pl-[20px] pr-[20px]'>
+        className=' mt-[20px] lg:mt-[40px] lg:w-11/12 lg:m-auto'>
+          <Box className=' lg:pl-[20px] lg:pr-[20px] pr-[10px] pl-[10px]'>
             <Box className=' mt-[20px] justify-between flex items-center'>
               <Box>
                 <Text className=' font-semibold'>Package Overview</Text>
@@ -329,11 +257,11 @@ function Page() {
               </Box>
             </Box>
             <Box className=' mt-[20px] justify-between flex items-center'>
-              <Text className=' font-semibold'>
-                Total package Received (90)
+              <Text className=' font-semibold lg:text-[18px] text-[14px]'>
+                 Package Received (90)
               </Text>
-              <Text className=' font-semibold'>
-                Total package Assigned (90)
+              <Text className=' font-semibold lg:text-[18px] text-[14px]'>
+                 Package Assigned (90)
               </Text>
             </Box>
             <Box className=' mt-[30px] pb-[30px]'>
@@ -347,7 +275,7 @@ function Page() {
     <AssignedTable />
   </TabPanel>
   <TabPanel>
-    <Box className=' mt-[20px] w-11/12 m-auto'>
+    <Box className=' mt-[20px] '>
           <OrdersTable />
         </Box>
   </TabPanel>

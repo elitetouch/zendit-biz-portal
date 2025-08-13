@@ -25,7 +25,7 @@ function Page() {
     </svg>
                   </Box>
                 </Box>
-<Box className=' pt-[20px] w-11/12 m-auto pb-[40px]'>
+<Box className=' pt-[20px] pb-[40px]'>
     <Box>
       <FinanceTable />
      </Box>

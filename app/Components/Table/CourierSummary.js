@@ -93,18 +93,31 @@ function CourierSummary({setDisplayBtn}) {
     // },
   };
   return (
-   <Box className="lg:grid hidden">
-  <Box border="1px" borderColor="gray.300" borderRadius="lg" className="pb-[20px] bg-white rounded-lg">
-    <Box className="overflow-x-auto">
-      <DataTable
+   <Box>
+      <Box className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 z-0 ">
+  <Box 
+    border="1px" 
+    borderColor="gray.300" 
+    borderRadius="lg" 
+    className="pb-[20px] bg-white z-0 overflow-hidden"
+  >
+    <Box 
+      position="unset" 
+      className="overflow-x-auto z-0"
+    >
+       <DataTable
         columns={column}
         data={Data}
         highlightOnHover
         customStyles={customStyles}
+      
       />
     </Box>
+      
   </Box>
 </Box>
+
+    </Box>
 
   )
 }

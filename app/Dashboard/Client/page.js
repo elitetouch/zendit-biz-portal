@@ -7,7 +7,7 @@ export const Clients_Overview=()=>{
   return (
 <Box className=' flex gap-x-[10px] pt-[20px] pl-[20px] pr-[20px]'>
        
-        <Box className=' grid grid-cols-5 w-full gap-x-[20px]'>
+        <Box className=' grid lg:grid-cols-5 grid-cols-2 gap-y-[20px] w-full gap-x-[20px]'>
           <Box>
             <DashboardCard
             textColor={'#031966'}
@@ -102,7 +102,7 @@ export const Clients_Overview=()=>{
             />
           </Box>
         </Box>
-         <Box>
+         <Box className=' lg:block hidden'>
           <Menu>
   <MenuButton  as={'button'}>
     {/* <Button backgroundColor={'#007460'} color={'white'}> */}
