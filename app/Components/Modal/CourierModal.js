@@ -30,7 +30,7 @@ function CourierModal({openSuccessfull,setOpenSuccessfull,setVerifyPayment }) {
                   <div className=' bg-[#8C8E98] w-6/12 h-1 rounded-sm lg:hidden'></div>
                   </Box> */}
                 <Box>
-                    <Box className=' flex items-center justify-between pt-[20px] w-11/12 m-auto'>
+                    <Box className=' flex items-center justify-between pt-[5px] lg:pt-[20px] lg:w-11/12 m-auto'>
                         <Text className=' font-semibold text-[20px]'>Couriers</Text>
                         <IconButton
                         backgroundColor={'transparent'}
@@ -41,7 +41,7 @@ function CourierModal({openSuccessfull,setOpenSuccessfull,setVerifyPayment }) {
 }
                         />
                     </Box>
-                    <Box className=' flex items-center gap-x-[20px] justify-between mt-[20px] w-11/12 m-auto'>
+                    <Box className=' lg:flex gap-y-[10px] grid items-center gap-x-[20px] justify-between mt-[20px] w-11/12 m-auto'>
                         <Box className=' flex items-center gap-x-[10px]'>
                             <Box>
                                 <Select placeholder='Select Couriers'>
@@ -73,7 +73,7 @@ function CourierModal({openSuccessfull,setOpenSuccessfull,setVerifyPayment }) {
                             </Box>
                         </Box>
                     </Box>
-                    <Box className=' mt-[20px] w-11/12 m-auto'>
+                    <Box className=' mt-[20px] lg:w-11/12 m-auto'>
                        <Box
                         borderBottom="1px" borderColor="gray.300" 
                         className=' w-full'
@@ -85,7 +85,7 @@ function CourierModal({openSuccessfull,setOpenSuccessfull,setVerifyPayment }) {
                             <Text className=' pb-[2px]'>All Couriers</Text>
                         </Box>
                         </Box> 
-                       <Box className=' mt-[20px]'>
+                       <Box className=' mt-[20px] mb-[20px]'>
                         <CourierTable />
                         </Box>   
                     </Box>

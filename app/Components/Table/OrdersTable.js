@@ -111,7 +111,7 @@ function OrdersTable({setDisplayBtn}) {
     Recievers_Number:'+2347065786732'
   },
   {
-    id:5,
+    id:17,
     Item:'Cupboard',
     Client:'LERROY',
     RecieverName:'Ayomide',
@@ -126,7 +126,57 @@ function OrdersTable({setDisplayBtn}) {
     Recievers_Name:'Mustapha Balarabe',
     Recievers_Number:'+2347065786732'
   },
-
+,
+  {
+    id:18,
+    Item:'Cupboard',
+    Client:'LERROY',
+    RecieverName:'Ayomide',
+    City:'Ijoka',
+    State:'Akure',
+    Status:'Delivered',
+     order_Id:'#0000248',
+    date:'24/04/2023',
+    time:'04:25pm',
+    Pick_Up_Location:'Ikeja Hub',
+    Drop_Off_Location:'Ikeja City Mall, Ikeja Lagos.',
+    Recievers_Name:'Mustapha Balarabe',
+    Recievers_Number:'+2347065786732'
+  },
+  ,
+  {
+    id:19,
+    Item:'Cupboard',
+    Client:'LERROY',
+    RecieverName:'Ayomide',
+    City:'Ijoka',
+    State:'Akure',
+    Status:'Delivered',
+     order_Id:'#0000248',
+    date:'24/04/2023',
+    time:'04:25pm',
+    Pick_Up_Location:'Ikeja Hub',
+    Drop_Off_Location:'Ikeja City Mall, Ikeja Lagos.',
+    Recievers_Name:'Mustapha Balarabe',
+    Recievers_Number:'+2347065786732'
+  },
+  ,
+  {
+    id:20,
+    Item:'Cupboard',
+    Client:'LERROY',
+    RecieverName:'Ayomide',
+    City:'Ijoka',
+    State:'Akure',
+    Status:'Delivered',
+     order_Id:'#0000248',
+    date:'24/04/2023',
+    time:'04:25pm',
+    Pick_Up_Location:'Ikeja Hub',
+    Drop_Off_Location:'Ikeja City Mall, Ikeja Lagos.',
+    Recievers_Name:'Mustapha Balarabe',
+    Recievers_Number:'+2347065786732'
+  },
   ]
   const customStyles = {
     headCells: {
