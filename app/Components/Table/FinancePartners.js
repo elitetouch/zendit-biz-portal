@@ -9,7 +9,7 @@ import Jumia from "../../../public/leroy.svg";
 import { Select } from "@chakra-ui/react";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 
-function FinanceTable({ setDisplayBtn }) {
+function FinancePartnersTable({ setDisplayBtn }) {
   const router = useRouter();
   const column = [
     {
@@ -17,7 +17,7 @@ function FinanceTable({ setDisplayBtn }) {
       selector: (row) => <Text className="text-[12px]">{row.date}</Text>,
     },
     {
-      name: "Client",
+      name: "Partners",
       selector: (row) => (
         <Box className=" flex items-center gap-x-[5px]">
           <Image src={row.icon} alt="" />
@@ -83,7 +83,7 @@ function FinanceTable({ setDisplayBtn }) {
   const Data = [
     {
       id: 1,
-      name: "LEROY",
+      name: "Jumia",
       assigned: "59",
       picked: "50",
       completed: "50",
@@ -99,7 +99,7 @@ function FinanceTable({ setDisplayBtn }) {
     },
     {
       id: 2,
-      client: "G2G",
+      client: "GUO",
       assigned: "59",
       picked: "50",
       completed: "50",
@@ -115,7 +115,7 @@ function FinanceTable({ setDisplayBtn }) {
     },
     {
       id: 3,
-      name: "G2G",
+      name: "GUO",
       assigned: "59",
       picked: "50",
       completed: "50",
@@ -147,7 +147,7 @@ function FinanceTable({ setDisplayBtn }) {
     },
     {
       id: 5,
-      client: "LEROY",
+      client: "GUO",
       assigned: "59",
       picked: "50",
       completed: "50",
@@ -198,4 +198,4 @@ function FinanceTable({ setDisplayBtn }) {
   );
 }
 
-export default FinanceTable;
+export default FinancePartnersTable;
