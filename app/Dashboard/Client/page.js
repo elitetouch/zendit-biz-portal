@@ -342,7 +342,7 @@ export const Clients_Overview = () => {
           />
         </Box>
       </Box>
-      <Box className=" lg:block hidden">
+      <Box className=" hidden">
         <Menu>
           <MenuButton as={"button"}>
             {/* <Button backgroundColor={'#007460'} color={'white'}> */}
@@ -421,7 +421,7 @@ function Page() {
           <Box>
             <Text className=" font-semibold">Package Overview</Text>
           </Box>
-          <Box cursor={"pointer"} className=" flex items-center gap-x-[10px]">
+          {/* <Box cursor={"pointer"} className=" flex items-center gap-x-[10px]">
             <Text className=" text-[12px]">More</Text>
             <svg
               width="12"
@@ -438,7 +438,7 @@ function Page() {
                 stroke-linejoin="round"
               />
             </svg>
-          </Box>
+          </Box> */}
         </Box>
         <Box className=" pt-[20px] w-11/12 m-auto pb-[40px]">
           <ZenditPartnersTable />

@@ -6,7 +6,7 @@ import PartnersTable from "@/app/Components/Table/Partners";
 export const Clients_Overview = () => {
   return (
     <Box className=" flex gap-x-[10px] pt-[20px] pl-[20px] pr-[20px]">
-      <Box className=" grid lg:grid-cols-3 grid-cols-2 gap-y-[20px] w-full gap-x-[10px] lg:gap-x-[20px]">
+      <Box className=" grid lg:grid-cols-3 grid-cols-1 gap-y-[20px] w-full gap-x-[10px] lg:gap-x-[20px]">
         <Box>
           <DashboardCard
             partners
@@ -54,11 +54,11 @@ export const Clients_Overview = () => {
                 />
               </svg>
             }
-            title={"Total"}
+            title={"Total Number of Partners"}
             Total_number={"300"}
           />
         </Box>
-        <Box>
+        {/* <Box>
           <DashboardCard
             partners
             bgColor={"#8FADFF33"}
@@ -200,7 +200,7 @@ export const Clients_Overview = () => {
             title={"Females"}
             Total_number={"50"}
           />
-        </Box>
+        </Box> */}
       </Box>
       <Box></Box>
     </Box>

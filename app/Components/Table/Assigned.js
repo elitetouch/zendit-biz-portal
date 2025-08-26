@@ -5,7 +5,7 @@ import { Box, Button, Text } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Jumia from "../../../public/jumia.svg";
+import Jumia from "../../../public/leroy.svg";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 import { Pagination } from "@/app/Dashboard/page";
 

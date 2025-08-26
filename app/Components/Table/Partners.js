@@ -6,9 +6,14 @@ import { IconButton } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Jumia from "../../../public/leroy.svg";
+import CourierModal from "../Modal/CourierModal";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 
 function PartnersTable({ setDisplayBtn }) {
+  const [showModal, setShowModal] = useState(false);
+  const toogleModal = (row) => {
+    setShowModal(!showModal);
+  };
   const router = useRouter();
   const column = [
     {
@@ -45,14 +50,14 @@ function PartnersTable({ setDisplayBtn }) {
   const Data = [
     {
       id: 1,
-      name: "Leroy courier",
+      name: "Leroy",
       assigned: "59",
       picked: "50",
       completed: "50",
       returned: "9",
       Status: "Paid",
       date: "2/08/2050",
-      client: "GUO",
+      client: "Leroy",
       assigned: "90",
       picked: "70",
       completed: "46",
@@ -62,7 +67,7 @@ function PartnersTable({ setDisplayBtn }) {
     },
     {
       id: 2,
-      client: "GUO",
+      client: "Leroy",
       assigned: "59",
       picked: "50",
       completed: "50",
@@ -86,7 +91,7 @@ function PartnersTable({ setDisplayBtn }) {
       returned: "9",
       Status: "Unpaid",
       date: "2/08/2050",
-      client: "GUO",
+      client: "Leroy",
       assigned: "90",
       picked: "70",
       completed: "46",
@@ -103,7 +108,7 @@ function PartnersTable({ setDisplayBtn }) {
       returned: "9",
       Status: "Unpaid",
       date: "2/08/2050",
-      client: "GUO",
+      client: "Leroy",
       assigned: "90",
       picked: "70",
       completed: "46",
@@ -113,14 +118,14 @@ function PartnersTable({ setDisplayBtn }) {
     },
     {
       id: 5,
-      client: "GUO",
+      client: "Leroy",
       assigned: "59",
       picked: "50",
       completed: "50",
       returned: "9",
       Status: "Unpaid",
       date: "2/08/2050",
-      client: "GUO",
+      client: "Leroy",
       assigned: "90",
       picked: "70",
       completed: "46",
@@ -143,23 +148,32 @@ function PartnersTable({ setDisplayBtn }) {
     // },
   };
   return (
-    <Box className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 z-0 ">
-      <Box
-        border="1px"
-        borderColor="gray.300"
-        borderRadius="lg"
-        className="pb-[20px] bg-white z-0 overflow-hidden"
-      >
-        <Box position="unset" className="overflow-x-auto z-0">
-          <DataTable
-            columns={column}
-            data={Data}
-            highlightOnHover
-            customStyles={customStyles}
-            responsive
-          />
+    <Box>
+      <Box className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 z-0 ">
+        <Box
+          border="1px"
+          borderColor="gray.300"
+          borderRadius="lg"
+          className="pb-[20px] bg-white z-0 overflow-hidden"
+        >
+          <Box position="unset" className="overflow-x-auto z-0">
+            <DataTable
+              columns={column}
+              data={Data}
+              highlightOnHover
+              customStyles={customStyles}
+              responsive
+              onRowClicked={toogleModal}
+            />
+          </Box>
         </Box>
       </Box>
+      {showModal && (
+        <CourierModal
+          setOpenSuccessfull={toogleModal}
+          openSuccessfull={showModal}
+        />
+      )}
     </Box>
   );
 }

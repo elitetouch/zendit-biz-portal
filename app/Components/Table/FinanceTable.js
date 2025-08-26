@@ -5,7 +5,7 @@ import { Box, Button, Text } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Jumia from "../../../public/leroy.svg";
+import Jumia from "../../../public/jumia.svg";
 import { Select } from "@chakra-ui/react";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 
@@ -63,7 +63,7 @@ function FinanceTable({ setDisplayBtn }) {
             row.status === "online" ? "bg-[#1EBD5D]" : "bg-[#DEEBFC]"
           }`}
         >
-          <Text
+          {/* <Text
             color={
               (row.Status === "Paid" && "#398EF1") ||
               (row.Status === "Unpaid" && "#FE9534") ||
@@ -73,7 +73,7 @@ function FinanceTable({ setDisplayBtn }) {
             className="text-[12px] font-semibold"
           >
             {row.Status}
-          </Text>
+          </Text> */}
           <option value="option1">Paid</option>
           <option value="option1">Unpaid</option>
         </Select>
@@ -99,7 +99,7 @@ function FinanceTable({ setDisplayBtn }) {
     },
     {
       id: 2,
-      client: "G2G",
+      client: "Jumia",
       assigned: "59",
       picked: "50",
       completed: "50",
@@ -147,7 +147,7 @@ function FinanceTable({ setDisplayBtn }) {
     },
     {
       id: 5,
-      client: "LEROY",
+      client: "Jumia",
       assigned: "59",
       picked: "50",
       completed: "50",

@@ -19,7 +19,7 @@ function Page() {
               <Box>
                 <Text className=" font-semibold">Zendit Finance</Text>
               </Box>
-              <Box
+              {/* <Box
                 cursor={"pointer"}
                 className=" flex items-center gap-x-[10px]"
               >
@@ -39,7 +39,7 @@ function Page() {
                     stroke-linejoin="round"
                   />
                 </svg>
-              </Box>
+              </Box> */}
             </Box>
             <Box>
               <Tabs>

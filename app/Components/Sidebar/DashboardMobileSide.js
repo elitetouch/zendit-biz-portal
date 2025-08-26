@@ -1,28 +1,33 @@
-'use client'
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from "react";
 import {
   Drawer,
   DrawerBody,
   DrawerOverlay,
   DrawerContent,
-} from '@chakra-ui/react';
-import DesktopSideBar from './DesktopSideBar';
+} from "@chakra-ui/react";
+import DesktopSideBar from "./DesktopSideBar";
 
-function DashboardMobileSide({ onClose, isOpen }) {
+function DashboardMobileSide({ onClose, isOpen, extendNav }) {
   // const [mobileTog, setMobileRTog] = useState(false)
- const mobileTogFunc=()=>{
-  onClose()
- }
+  const mobileTogFunc = () => {
+    onClose();
+  };
   return (
     <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay />
-      <DrawerContent w="fit-content" maxW="70vw" p={0} h={'100vh'}>
+      <DrawerContent w="fit-content" maxW="70vw" p={0} h={"100vh"}>
         <DrawerBody p={0}>
-          <DesktopSideBar client mobileTog toogleMobile={()=>mobileTogFunc()} />
+          <DesktopSideBar
+            extendNav={extendNav}
+            client
+            mobileTog
+            toogleMobile={() => mobileTogFunc()}
+          />
         </DrawerBody>
       </DrawerContent>
     </Drawer>
-  )
+  );
 }
 
 export default DashboardMobileSide;

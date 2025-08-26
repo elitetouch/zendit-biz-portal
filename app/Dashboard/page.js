@@ -101,7 +101,7 @@ export const Pagination = () => {
 function Page() {
   const [itemsPage, setItemsPage] = useState(1);
   const router = useRouter();
-  const patners = ["LEROY", "JUMIA", "GUO"];
+  const patners = ["JUMIA"];
   return (
     <div>
       <Box className=" pl-[20px] pr-[20px] m-auto mt-[20px]">
@@ -137,7 +137,7 @@ function Page() {
                         />
                       </svg>
                       <Text className=" lg:text-[14px] text-[12px]">
-                        Partners
+                        Clients
                       </Text>
                       <svg
                         width="16"

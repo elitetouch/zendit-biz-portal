@@ -63,7 +63,7 @@ function FinancePartnersTable({ setDisplayBtn }) {
             row.status === "online" ? "bg-[#1EBD5D]" : "bg-[#DEEBFC]"
           }`}
         >
-          <Text
+          {/* <Text
             color={
               (row.Status === "Paid" && "#398EF1") ||
               (row.Status === "Unpaid" && "#FE9534") ||
@@ -73,7 +73,7 @@ function FinancePartnersTable({ setDisplayBtn }) {
             className="text-[12px] font-semibold"
           >
             {row.Status}
-          </Text>
+          </Text> */}
           <option value="option1">Paid</option>
           <option value="option1">Unpaid</option>
         </Select>
@@ -83,14 +83,14 @@ function FinancePartnersTable({ setDisplayBtn }) {
   const Data = [
     {
       id: 1,
-      name: "Jumia",
+      name: "Leroy",
       assigned: "59",
       picked: "50",
       completed: "50",
       returned: "9",
       Status: "Paid",
       date: "2/08/2050",
-      client: "Jumia",
+      client: "Leroy",
       assigned: "90",
       picked: "70",
       completed: "46",
@@ -99,7 +99,7 @@ function FinancePartnersTable({ setDisplayBtn }) {
     },
     {
       id: 2,
-      client: "GUO",
+      client: "Leroy",
       assigned: "59",
       picked: "50",
       completed: "50",
@@ -115,14 +115,14 @@ function FinancePartnersTable({ setDisplayBtn }) {
     },
     {
       id: 3,
-      name: "GUO",
+      name: "Leroy",
       assigned: "59",
       picked: "50",
       completed: "50",
       returned: "9",
       Status: "Paid",
       date: "2/08/2050",
-      client: "Jumia",
+      client: "Leroy",
       assigned: "90",
       picked: "70",
       completed: "46",
@@ -131,14 +131,14 @@ function FinancePartnersTable({ setDisplayBtn }) {
     },
     {
       id: 4,
-      name: "Jumia",
+      name: "Leroy",
       assigned: "59",
       picked: "50",
       completed: "50",
       returned: "9",
       Status: "Paid",
       date: "2/08/2050",
-      client: "Jumia",
+      client: "Leroy",
       assigned: "90",
       picked: "70",
       completed: "46",
@@ -147,7 +147,7 @@ function FinancePartnersTable({ setDisplayBtn }) {
     },
     {
       id: 5,
-      client: "GUO",
+      client: "Leroy",
       assigned: "59",
       picked: "50",
       completed: "50",
