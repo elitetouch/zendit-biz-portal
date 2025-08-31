@@ -8,7 +8,7 @@ import Image from "next/image";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 import CourierModal from "../Modal/CourierModal";
 import { Pagination } from "@/app/Dashboard/page";
-function OrdersTable({ setDisplayBtn }) {
+function OrdersTable({ Client }) {
   const [showModal, setShowModal] = useState(false);
   const toogleModal = () => {
     setShowModal(!showModal);
@@ -86,18 +86,33 @@ function OrdersTable({ setDisplayBtn }) {
             backgroundColor={'#DEEBFC'} color={'#398EF1'} onClick={()=>{toogleModal()}}>
                 <Text className=' text-[12px]'>Assign to</Text>
             </Button> */}
-          <Select
-            backgroundColor={"#DEEBFC"}
-            roundedLeft={"full"}
-            roundedRight={"full"}
-            color={"#398EF1"}
-            fontSize={10}
-            placeholder="SELECT PARTNER"
-          >
-            <option>JUO</option>
-            <option>LERROY</option>
-            {/* <option>JUO</option> */}
-          </Select>
+          {Client ? (
+            <Select
+              backgroundColor={"#DEEBFC"}
+              roundedLeft={"full"}
+              roundedRight={"full"}
+              color={"#398EF1"}
+              fontSize={10}
+              placeholder="SELECT RIDER"
+            >
+              <option>Oyeniyan Ayomide</option>
+              <option>Oshuperu Emmanuel</option>
+              {/* <option>JUO</option> */}
+            </Select>
+          ) : (
+            <Select
+              backgroundColor={"#DEEBFC"}
+              roundedLeft={"full"}
+              roundedRight={"full"}
+              color={"#398EF1"}
+              fontSize={10}
+              placeholder="SELECT PARTNER"
+            >
+              <option>JUO</option>
+              <option>LERROY</option>
+              {/* <option>JUO</option> */}
+            </Select>
+          )}
         </Box>
       ),
     },

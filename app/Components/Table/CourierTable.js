@@ -6,6 +6,7 @@ import { IconButton } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useToast } from "@chakra-ui/react";
+import courier_image from "../../../public/cardAvatar.svg";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 
 function CourierTable({ setDisplayBtn }) {
@@ -25,15 +26,24 @@ function CourierTable({ setDisplayBtn }) {
   const column = [
     {
       name: "Name of Courier",
-      selector: (row) => <Text className="text-[12px]">{row.firstName}</Text>,
+      selector: (row) => (
+        <Box className=" flex items-center gap-x-[10px]">
+          <Box className=" h-[20px] w-[20px] rounded-full">
+            <Image
+              alt=""
+              src={row.courier_image}
+              width={20}
+              height={20}
+              className=" rounded-full"
+            />
+          </Box>
+          <Text className="text-[12px]">{row.courier_firstName}</Text>
+        </Box>
+      ),
     },
     {
-      name: "Order ID",
-      selector: (row) => (
-        <Text className="text-[12px]">
-          {row.Item} ({row.order_Id})
-        </Text>
-      ),
+      name: "Phone Number",
+      selector: (row) => <Text className="text-[12px]">{row.phoneNumber}</Text>,
     },
     {
       name: "Package Assigned",
@@ -107,6 +117,8 @@ function CourierTable({ setDisplayBtn }) {
       Client: "LERROY",
       order_Id: "#0000248",
       package_assigned: "50",
+      courier_firstName: "Oyesola",
+      courier_image: courier_image,
     },
     {
       id: 2,
@@ -121,6 +133,8 @@ function CourierTable({ setDisplayBtn }) {
       Item: "Laptop stands",
       order_Id: "#0000248",
       package_assigned: "20",
+      courier_firstName: "Samson",
+      courier_image: courier_image,
     },
     {
       id: 3,
@@ -135,6 +149,8 @@ function CourierTable({ setDisplayBtn }) {
       Item: "Router",
       order_Id: "#0000248",
       package_assigned: "90",
+      courier_firstName: "Oyeniyan",
+      courier_image: courier_image,
     },
     {
       id: 4,
@@ -149,6 +165,8 @@ function CourierTable({ setDisplayBtn }) {
       Item: "Mifi",
       order_Id: "#0000248",
       package_assigned: "2",
+      courier_firstName: "Okopuje",
+      courier_image: courier_image,
     },
     {
       id: 16,
@@ -163,6 +181,8 @@ function CourierTable({ setDisplayBtn }) {
       Item: "Cupboard",
       order_Id: "#0000248",
       package_assigned: "5",
+      courier_firstName: "Goddey",
+      courier_image: courier_image,
     },
     {
       id: 17,
@@ -177,6 +197,8 @@ function CourierTable({ setDisplayBtn }) {
       Item: "Iphone",
       order_Id: "#0000248",
       package_assigned: "10",
+      courier_firstName: "Samson",
+      courier_image: courier_image,
     },
     {
       id: 18,
@@ -191,6 +213,8 @@ function CourierTable({ setDisplayBtn }) {
       Item: "Cupboard",
       order_Id: "#0000248",
       package_assigned: "8",
+      courier_firstName: "Peter",
+      courier_image: courier_image,
     },
     {
       id: 19,
@@ -205,6 +229,8 @@ function CourierTable({ setDisplayBtn }) {
       Item: "Bag",
       order_Id: "#0000248",
       package_assigned: "5",
+      courier_firstName: "Oshuperu",
+      courier_image: courier_image,
     },
     {
       id: 20,
@@ -219,6 +245,8 @@ function CourierTable({ setDisplayBtn }) {
       Item: "Cupboard",
       order_Id: "#0000248",
       package_assigned: "9",
+      courier_firstName: "Justin",
+      courier_image: courier_image,
     },
   ];
   const customStyles = {
@@ -236,12 +264,13 @@ function CourierTable({ setDisplayBtn }) {
     // },
   };
   return (
-    <Box className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 z-0 lg:grid max-h-[40vh]">
+    <Box className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 z-0 lg:grid max-h-[40vh] ">
       <Box
         border="1px"
         borderColor="gray.300"
         borderRadius="lg"
-        className="pb-[20px] bg-white z-0 overflow-hidden"
+        //marginBottom={20}
+        className="pb-[10px] bg-white z-0 overflow-hidden mb-[10px] "
       >
         <Box position="unset" className="overflow-x-auto z-0">
           <DataTable

@@ -6,9 +6,10 @@ import ClientPartnersTable from "@/app/Components/Table/ClientPartners";
 export const Clients_Overview = () => {
   return (
     <Box className=" flex gap-x-[10px] pt-[20px] pl-[20px] pr-[20px]">
-      <Box className=" grid lg:grid-cols-5 grid-cols-2 gap-y-[20px] w-full gap-x-[20px]">
+      <Box className=" grid lg:grid-cols-3 grid-cols-1 gap-y-[20px] w-full gap-x-[10px] lg:gap-x-[20px]">
         <Box>
           <DashboardCard
+            partners
             textColor={"#031966"}
             bgColor={"#3D25CF17"}
             icon={
@@ -53,12 +54,13 @@ export const Clients_Overview = () => {
                 />
               </svg>
             }
-            title={"Assigned"}
+            title={"Total Number of Partners"}
             Total_number={"300"}
           />
         </Box>
-        <Box>
+        {/* <Box>
           <DashboardCard
+            partners
             bgColor={"#8FADFF33"}
             textColor={"#398EF1"}
             icon={
@@ -141,153 +143,13 @@ export const Clients_Overview = () => {
                 />
               </svg>
             }
-            title={"Delivered"}
+            title={"Males"}
             Total_number={"200"}
           />
         </Box>
         <Box>
           <DashboardCard
-            textColor={"#FE9534"}
-            bgColor={"#F7C56F33"}
-            icon={
-              <svg
-                width="23"
-                height="24"
-                viewBox="0 0 23 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13.9497 2.83594H9.07033C7.34821 2.83594 6.96552 3.69701 6.74547 4.75899L5.96094 8.50938H17.0591L16.2746 4.75899C16.0545 3.69701 15.6718 2.83594 13.9497 2.83594Z"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M18.4357 14.6231C18.5122 15.4364 17.8616 16.1348 17.0293 16.1348H15.7281C14.9818 16.1348 14.8766 15.8191 14.7427 15.4173L14.5991 15.0058C14.4078 14.4413 14.2834 14.0586 13.2788 14.0586H9.72935C8.73434 14.0586 8.58126 14.4892 8.40904 15.0058L8.26554 15.4173C8.13159 15.8095 8.02636 16.1348 7.2801 16.1348H5.97894C5.14657 16.1348 4.49599 15.4364 4.57253 14.6231L4.9648 10.3944C5.06047 9.35154 5.26138 8.5 7.07918 8.5H15.929C17.7468 8.5 17.9477 9.35154 18.0434 10.3944L18.4357 14.6231Z"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M5.96013 6.42383H5.26172"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M17.7531 6.42383H17.0547"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M7.34766 11.2852H9.42379"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M13.5938 11.2852H15.6699"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.5078 17.1875V18.1442"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.5078 21.0156V21.9724"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M2.89814 18.1445L1.94141 21.9715"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M20.1211 18.1445L21.0778 21.9715"
-                  stroke="#FE9534"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            }
-            title={"Returned"}
-            Total_number={"50"}
-          />
-        </Box>
-        <Box>
-          <DashboardCard
-            bgColor={"#3D25CF17"}
-            textColor={"gray"}
-            icon={
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11.1805 16.7832V18.7254C11.1805 20.371 9.64975 21.7008 7.76498 21.7008C5.88021 21.7008 4.33984 20.371 4.33984 18.7254V16.7832C4.33984 18.4288 5.87064 19.596 7.76498 19.596C9.64975 19.596 11.1805 18.4192 11.1805 16.7832Z"
-                  stroke="#031966"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.1783 14.1514C11.1783 14.6298 11.0444 15.0699 10.8148 15.4526C10.2503 16.3806 9.09264 16.9642 7.7532 16.9642C6.41377 16.9642 5.25611 16.371 4.69163 15.4526C4.46201 15.0699 4.32812 14.6298 4.32812 14.1514C4.32812 13.3286 4.7108 12.5919 5.32311 12.0562C5.94499 11.5108 6.79646 11.1855 7.74363 11.1855C8.6908 11.1855 9.54232 11.5204 10.1642 12.0562C10.7956 12.5824 11.1783 13.3286 11.1783 14.1514Z"
-                  stroke="#031966"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.1805 14.1532V16.7842C11.1805 18.4298 9.64975 19.597 7.76498 19.597C5.88021 19.597 4.33984 18.4202 4.33984 16.7842V14.1532C4.33984 12.5076 5.87064 11.1777 7.76498 11.1777C8.71215 11.1777 9.56368 11.5126 10.1856 12.0483C10.7979 12.5841 11.1805 13.3304 11.1805 14.1532Z"
-                  stroke="#031966"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M21.9424 11.1477V13.1186C21.9424 13.6448 21.5214 14.0753 20.9856 14.0945H19.1104C18.0771 14.0945 17.13 13.3387 17.0439 12.3054C16.9865 11.7026 17.2161 11.1382 17.6179 10.7459C17.9719 10.3823 18.4598 10.1719 18.9956 10.1719H20.9856C21.5214 10.191 21.9424 10.6215 21.9424 11.1477Z"
-                  stroke="#031966"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M2.80469 10.6991V8.78564C2.80469 6.18331 4.37374 4.36551 6.81342 4.05936C7.06217 4.02109 7.32049 4.00195 7.58838 4.00195H16.199C16.4478 4.00195 16.687 4.01151 16.9166 4.04978C19.385 4.3368 20.9827 6.16418 20.9827 8.78564V10.1729H18.9927C18.4569 10.1729 17.969 10.3834 17.615 10.7469C17.2131 11.1392 16.9835 11.7037 17.0409 12.3064C17.1271 13.3397 18.0742 14.0955 19.1075 14.0955H20.9827V15.4828C20.9827 18.353 19.0692 20.2665 16.199 20.2665H13.8072"
-                  stroke="#292D32"
-                  stroke-width="1.43511"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            }
-            title={"Paid"}
-            Total_number={"50"}
-          />
-        </Box>
-        <Box>
-          <DashboardCard
+            partners
             bgColor={"#CF392517"}
             textColor={"#1EBD5D"}
             icon={
@@ -335,10 +197,10 @@ export const Clients_Overview = () => {
                 />
               </svg>
             }
-            title={"Unpaid"}
+            title={"Females"}
             Total_number={"50"}
           />
-        </Box>
+        </Box> */}
       </Box>
       <Box className=" lg:block hidden">
         <Menu>

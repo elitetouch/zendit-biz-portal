@@ -14,16 +14,29 @@ export default function RootLayout({ children }) {
     setToogleSideMenu(!toogleSideMenu);
     //  toogleMobile()
   };
+  const [extendNav, setExtendNav] = useState(true);
   return (
     <Box className=" lg:flex w-full ">
       <Box className=" lg:fixed lg:grid hidden">
-        <DesktopSideBar client />
+        <DesktopSideBar
+          client
+          extendNav={extendNav}
+          setExtendNav={setExtendNav}
+        />
       </Box>
       <Box className=" lg:hidden w-full">
-        <DashboardMobileSide onClose={onClose} isOpen={isOpen} />
+        <DashboardMobileSide
+          extendNav={extendNav}
+          onClose={onClose}
+          isOpen={isOpen}
+        />
       </Box>
 
-      <Box className=" lg:flex-1 lg:pl-[220px] grid w-full">
+      <Box
+        className={`lg:flex-1 ${
+          extendNav ? " lg:pl-[210px]" : "pl-[100px]"
+        } grid w-full`}
+      >
         <Box className=" lg:hidden grid w-full bg-amber-600">
           <MobileTopBar toogleSideNav={!isOpen ? onOpen : onClose} />
         </Box>

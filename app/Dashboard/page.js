@@ -22,6 +22,7 @@ import { Select } from "@chakra-ui/react";
 import { MenuButton, MenuList, Menu, MenuItem } from "@chakra-ui/react";
 import ClientTable from "../Components/Table/ClientTable";
 import AssignedTable from "../Components/Table/Assigned";
+
 export const Pagination = () => {
   return (
     <Box className=" mt-[20px] flex items-center justify-between">

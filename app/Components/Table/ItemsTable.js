@@ -1,29 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, Select, Text } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Jumia from "../../../public/ImageAva.svg";
 //  import imp from '../../Dashboard/OrderDetails/${}'
+import CourierModal from "../Modal/CourierModal";
 import { Pagination } from "@/app/Dashboard/page";
-
-function ClientAssignedTable({ setDisplayBtn, status }) {
+function ItemsTable({ setDisplayBtn }) {
   const [showModal, setShowModal] = useState(false);
   const toogleModal = () => {
     setShowModal(!showModal);
   };
   const router = useRouter();
   const column = [
-    {
-      name: "Date",
-      selector: (row) => (
-        <Text className="text-[12px]">
-          {row.date} {row.time}
-        </Text>
-      ),
-    },
     {
       name: "Order ID",
       selector: (row) => (
@@ -32,6 +23,15 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
         </Text>
       ),
     },
+    {
+      name: "Date",
+      selector: (row) => (
+        <Text className="text-[12px]">
+          {row.date} {row.time}
+        </Text>
+      ),
+    },
+
     {
       name: "Pick up location",
       selector: (row) => (
@@ -52,40 +52,10 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
             <span className=" font-semibold">Name:</span>
             {row.Recievers_Name}
           </Text>
-          <Text className="text-[12px]">
-            <span className=" font-semibold mt-[5px]">Contact:</span>
+          <Text className="text-[12px] pt-[5px]">
+            <span className=" font-semibold pt-[5px]">Contact:</span>
             {row.Recievers_Number}
           </Text>
-        </Box>
-      ),
-    },
-    {
-      name: "Status",
-      selector: (row) => (
-        <Box className=" flex ">
-          <Box
-            className=" h-[37px] w-[90px] grid justify-center items-center"
-            roundedLeft={"full"}
-            roundedRight={"full"}
-            width={100}
-            backgroundColor={
-              (row.Status === "Picked" && "#DEEBFC") ||
-              (row.Status === "Completed" && "#C2FFC0") ||
-              (row.Status === "Pending" && "#FFF2D1")
-            }
-            color={"#398EF1"}
-          >
-            <Text
-              color={
-                (row.Status === "Picked" && "#398EF1") ||
-                (row.Status === "Completed" && "#1EBD5D") ||
-                (row.Status === "Pending" && "#F5B546")
-              }
-              className=" text-[12px]"
-            >
-              {status ? status : row.Status}
-            </Text>
-          </Box>
         </Box>
       ),
     },
@@ -94,7 +64,7 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
     {
       id: 1,
       Item: "Nike Airforce",
-      Client: "Alex Mayor",
+      Client: "JUMIA",
       RecieverName: "Sazuke",
       City: "Apapa",
       State: "Lagos",
@@ -106,16 +76,17 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Drop_Off_Location: "Ikeja City Mall, Ikeja Lagos.",
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
-      icon: Jumia,
+      Rider_Name: "John Doe",
+      Rider_Number: "+2347065786732",
     },
     {
       id: 2,
       Item: "Laptop stands",
-      Client: "Paul Mason",
+      Client: "GUO motors",
       RecieverName: "Akatsuki",
       City: "Hidden leaf",
       State: "Horkage",
-      Status: "Completed",
+      Status: "Not picked",
       order_Id: "#0000248",
       date: "24/04/2023",
       time: "04:25pm",
@@ -123,16 +94,17 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Drop_Off_Location: "Ikeja City Mall, Ikeja Lagos.",
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
-      icon: Jumia,
+      Rider_Name: "John Doe",
+      Rider_Number: "+2347065786732",
     },
     {
       id: 3,
       Item: "Router",
-      Client: "Paul Mason",
+      Client: "JOY MART",
       RecieverName: "Lee",
       City: "Ojuelegba",
       State: "Lagos",
-      Status: "Pending",
+      Status: "Ongoing",
       order_Id: "#0000248",
       date: "24/04/2023",
       time: "04:25pm",
@@ -140,16 +112,17 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Drop_Off_Location: "Ikeja City Mall, Ikeja Lagos.",
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
-      icon: Jumia,
+      Rider_Name: "John Doe",
+      Rider_Number: "+2347065786732",
     },
     {
       id: 4,
       Item: "Mifi",
-      Client: "Paul Mason",
+      Client: "ANATA",
       RecieverName: "Anita",
       City: "Shagari village",
       State: "Akure",
-      Status: "Completed",
+      Status: "Delivered",
       order_Id: "#0000248",
       date: "24/04/2023",
       time: "04:25pm",
@@ -157,16 +130,17 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Drop_Off_Location: "Ikeja City Mall, Ikeja Lagos.",
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
-      icon: Jumia,
+      Rider_Name: "John Doe",
+      Rider_Number: "+2347065786732",
     },
     {
-      id: 5,
+      id: 17,
       Item: "Cupboard",
-      Client: "Paul Mason",
+      Client: "LERROY",
       RecieverName: "Ayomide",
       City: "Ijoka",
       State: "Akure",
-      Status: "Completed",
+      Status: "Delivered",
       order_Id: "#0000248",
       date: "24/04/2023",
       time: "04:25pm",
@@ -174,7 +148,65 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Drop_Off_Location: "Ikeja City Mall, Ikeja Lagos.",
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
-      icon: Jumia,
+      Rider_Name: "John Doe",
+      Rider_Number: "+2347065786732",
+    },
+    ,
+    {
+      id: 18,
+      Item: "Cupboard",
+      Client: "LERROY",
+      RecieverName: "Ayomide",
+      City: "Ijoka",
+      State: "Akure",
+      Status: "Delivered",
+      order_Id: "#0000248",
+      date: "24/04/2023",
+      time: "04:25pm",
+      Pick_Up_Location: "Ikeja Hub",
+      Drop_Off_Location: "Ikeja City Mall, Ikeja Lagos.",
+      Recievers_Name: "Mustapha Balarabe",
+      Recievers_Number: "+2347065786732",
+      Rider_Name: "John Doe",
+      Rider_Number: "+2347065786732",
+    },
+    ,
+    {
+      id: 19,
+      Item: "Cupboard",
+      Client: "LERROY",
+      RecieverName: "Ayomide",
+      City: "Ijoka",
+      State: "Akure",
+      Status: "Delivered",
+      order_Id: "#0000248",
+      date: "24/04/2023",
+      time: "04:25pm",
+      Pick_Up_Location: "Ikeja Hub",
+      Drop_Off_Location: "Ikeja City Mall, Ikeja Lagos.",
+      Recievers_Name: "Mustapha Balarabe",
+      Recievers_Number: "+2347065786732",
+      Rider_Name: "John Doe",
+      Rider_Number: "+2347065786732",
+    },
+    ,
+    {
+      id: 20,
+      Item: "Cupboard",
+      Client: "LERROY",
+      RecieverName: "Ayomide",
+      City: "Ijoka",
+      State: "Akure",
+      Status: "Delivered",
+      order_Id: "#0000248",
+      date: "24/04/2023",
+      time: "04:25pm",
+      Pick_Up_Location: "Ikeja Hub",
+      Drop_Off_Location: "Ikeja City Mall, Ikeja Lagos.",
+      Recievers_Name: "Mustapha Balarabe",
+      Recievers_Number: "+2347065786732",
+      Rider_Name: "John Doe",
+      Rider_Number: "+2347065786732",
     },
   ];
   const customStyles = {
@@ -192,14 +224,15 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
     // },
   };
   return (
-    <Box className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 z-0 ">
+    <Box className="grid gap-4">
       <Box
         border="1px"
         borderColor="gray.300"
         borderRadius="lg"
-        className="pb-[20px] bg-white z-0 overflow-hidden"
+        className="pb-[20px] bg-white rounded-lg w-full overflow-hidden"
       >
-        <Box position="unset" className="overflow-x-auto z-0">
+        {/* Table container with horizontal scroll on small devices */}
+        <Box className="overflow-x-auto">
           <DataTable
             columns={column}
             data={Data}
@@ -209,8 +242,21 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
           />
         </Box>
       </Box>
+
+      {/* Pagination stays below table */}
+      <Box className="">
+        <Pagination />
+      </Box>
+
+      {/* Modal stays above content */}
+      {showModal && (
+        <CourierModal
+          setOpenSuccessfull={toogleModal}
+          openSuccessfull={showModal}
+        />
+      )}
     </Box>
   );
 }
 
-export default ClientAssignedTable;
+export default ItemsTable;

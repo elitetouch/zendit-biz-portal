@@ -6,10 +6,11 @@ import { IconButton } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Jumia from "../../../public/jumia.svg";
+import Courier from "../../../public/cardAvatar.svg";
 import { Select } from "@chakra-ui/react";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 
-function FinanceTable({ setDisplayBtn }) {
+function FinanceTable({ setDisplayBtn, Client }) {
   const router = useRouter();
   const column = [
     {
@@ -17,11 +18,17 @@ function FinanceTable({ setDisplayBtn }) {
       selector: (row) => <Text className="text-[12px]">{row.date}</Text>,
     },
     {
-      name: "Client",
+      name: Client ? "Rider" : "Client",
       selector: (row) => (
         <Box className=" flex items-center gap-x-[5px]">
-          <Image src={row.icon} alt="" />
-          <Text className="text-[12px]">{row.client}</Text>
+          {Client ? (
+            <Image src={Courier} alt="" />
+          ) : (
+            <Image src={row.icon} alt="" />
+          )}
+          <Text className="text-[12px]">
+            {Client ? "Tunbosun James" : row.client}
+          </Text>
         </Box>
       ),
     },
@@ -177,7 +184,7 @@ function FinanceTable({ setDisplayBtn }) {
     // },
   };
   return (
-    <Box className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 z-0 ">
+    <Box className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 z-0 pl-[20px] pr-[20px] ">
       <Box
         border="1px"
         borderColor="gray.300"

@@ -7,12 +7,17 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Jumia from "../../../public/leroy.svg";
 import CourierModal from "../Modal/CourierModal";
+import ItemModal from "./ItemModal";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 
 function PartnersTable({ setDisplayBtn }) {
   const [showModal, setShowModal] = useState(false);
   const toogleModal = (row) => {
     setShowModal(!showModal);
+  };
+  const [showItemModal, setShowItemModal] = useState(false);
+  const toogleItemModal = (row) => {
+    setShowItemModal(!showItemModal);
   };
   const router = useRouter();
   const column = [
@@ -23,7 +28,11 @@ function PartnersTable({ setDisplayBtn }) {
     {
       name: "Partners",
       selector: (row) => (
-        <Box className=" flex items-center gap-x-[5px]">
+        <Box
+          cursor={"pointer"}
+          onClick={() => toogleModal()}
+          className=" flex items-center gap-x-[5px]"
+        >
           <Image src={row.icon} alt="" />
           <Text className="text-[12px]">{row.client}</Text>
         </Box>
@@ -34,13 +43,26 @@ function PartnersTable({ setDisplayBtn }) {
       selector: (row) => <Text className="text-[12px]">{row.contact}</Text>,
     },
     {
+      name: "Package Assigned",
+      selector: (row) => (
+        <Box
+          onClick={() => {
+            toogleItemModal();
+          }}
+          cursor={"pointer"}
+        >
+          <Text className="text-[12px]">{row.packageAssigned}</Text>
+        </Box>
+      ),
+    },
+    {
       name: "Number of Riders",
       selector: (row) => <Text className="text-[12px]">{row.picked}</Text>,
     },
 
     {
       name: "Address",
-      selector: (row) => <Text className="text-[12px]">{row.assigned}</Text>,
+      selector: (row) => <Text className="text-[12px]">{row.address}</Text>,
     },
 
     //       {
@@ -64,6 +86,8 @@ function PartnersTable({ setDisplayBtn }) {
       returned: "24",
       icon: Jumia,
       contact: "09065345627",
+      address: "Shagari village roadH, Akure Ondostate",
+      packageAssigned: 3,
     },
     {
       id: 2,
@@ -81,6 +105,8 @@ function PartnersTable({ setDisplayBtn }) {
       returned: "24",
       icon: Jumia,
       contact: "09065345627",
+      address: "Shagari village roadH, Akure Ondostate",
+      packageAssigned: 4,
     },
     {
       id: 3,
@@ -98,6 +124,8 @@ function PartnersTable({ setDisplayBtn }) {
       returned: "24",
       icon: Jumia,
       contact: "09065345627",
+      address: "Shagari village roadH, Akure Ondostate",
+      packageAssigned: 9,
     },
     {
       id: 4,
@@ -115,6 +143,8 @@ function PartnersTable({ setDisplayBtn }) {
       returned: "24",
       icon: Jumia,
       contact: "09065345627",
+      address: "Shagari village roadH, Akure Ondostate",
+      packageAssigned: 10,
     },
     {
       id: 5,
@@ -132,6 +162,8 @@ function PartnersTable({ setDisplayBtn }) {
       returned: "24",
       icon: Jumia,
       contact: "09065345627",
+      address: "Shagari village roadH, Akure Ondostate",
+      packageAssigned: 6,
     },
   ];
   const customStyles = {
@@ -163,7 +195,7 @@ function PartnersTable({ setDisplayBtn }) {
               highlightOnHover
               customStyles={customStyles}
               responsive
-              onRowClicked={toogleModal}
+              //onRowClicked={toogleModal}
             />
           </Box>
         </Box>
@@ -172,6 +204,12 @@ function PartnersTable({ setDisplayBtn }) {
         <CourierModal
           setOpenSuccessfull={toogleModal}
           openSuccessfull={showModal}
+        />
+      )}
+      {showItemModal && (
+        <ItemModal
+          setOpenSuccessfull={toogleItemModal}
+          openSuccessfull={showItemModal}
         />
       )}
     </Box>
