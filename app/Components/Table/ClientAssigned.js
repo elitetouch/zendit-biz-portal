@@ -45,15 +45,30 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       ),
     },
     {
+      name: "Riders Details",
+      selector: (row) => (
+        <Box>
+          <Text className="text-[12px]">
+            <span className=" font-semibold">Name: </span>
+            {row.Rider_Name}
+          </Text>
+          <Text className="text-[12px] pt-[5px]">
+            <span className=" font-semibold pt-[5px]">Contact: </span>
+            {row.Rider_Number}
+          </Text>
+        </Box>
+      ),
+    },
+    {
       name: "Receiver Details",
       selector: (row) => (
         <Box>
           <Text className="text-[12px]">
-            <span className=" font-semibold">Name:</span>
+            <span className=" font-semibold">Name: </span>
             {row.Recievers_Name}
           </Text>
           <Text className="text-[12px]">
-            <span className=" font-semibold mt-[5px]">Contact:</span>
+            <span className=" font-semibold mt-[5px]">Contact: </span>
             {row.Recievers_Number}
           </Text>
         </Box>
@@ -107,6 +122,8 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
       icon: Jumia,
+      Rider_Name: "Alabi",
+      Rider_Number: "08168854356",
     },
     {
       id: 2,
@@ -124,6 +141,8 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
       icon: Jumia,
+      Rider_Name: "Alabi",
+      Rider_Number: "08168854356",
     },
     {
       id: 3,
@@ -141,6 +160,8 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
       icon: Jumia,
+      Rider_Name: "Alabi",
+      Rider_Number: "08168854356",
     },
     {
       id: 4,
@@ -158,6 +179,8 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
       icon: Jumia,
+      Rider_Name: "Alabi",
+      Rider_Number: "08168854356",
     },
     {
       id: 5,
@@ -175,6 +198,8 @@ function ClientAssignedTable({ setDisplayBtn, status }) {
       Recievers_Name: "Mustapha Balarabe",
       Recievers_Number: "+2347065786732",
       icon: Jumia,
+      Rider_Name: "Alabi",
+      Rider_Number: "08168854356",
     },
   ];
   const customStyles = {

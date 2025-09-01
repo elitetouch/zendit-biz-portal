@@ -1,216 +1,262 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { Box, Text } from "@chakra-ui/react";
-import ChakraInputs from "../Components/Inputs/ChakraInputs";
-import signIn from '../../public/signin.jpg'
+import signIn from "../../public/signin.jpg";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
-
-
-export default function Home() {
-   const router = useRouter()
-  const toast = useToast()
-  const formdata={
-    firstName:'',
-    lastName:'',
-    email:'',
-    password:'',
-    confirm_password:''
-  }
-  const [signUpDetails, setSignUpDetails] = useState(formdata)
-  
-  const handleSignInChange= (e)=>{
-    setSignUpDetails({...signUpDetails,[e.target.name]:e.target.value})
-  }
-  const [signUpLoader, setSignUpLoader] = useState(false)
-   const submitLogin=()=>{
-    setSignUpLoader(true)
-    console.log(signUpDetails)
-    const formData = new FormData()
-    formData.append('firstName',signUpDetails.firstName)
-     formData.append('email', signUpDetails.lastName)
-      formData.append('email', signUpDetails.email)
-     formData.append('password', signUpDetails.password)
-      formData.append('email', signUpDetails.confirm_password)
-   }
+import upload from "../../public/upload.png";
+import { Input } from "@chakra-ui/react";
+import { useRef } from "react";
+//import imp from '../Client_dashboard'
+export const ChakraInputs = ({
+  labeling,
+  placingtext,
+  names,
+  changes,
+  values,
+  icon,
+  secIcon,
+  labelStyle,
+  inputStyle,
+  secIconFunc,
+  showPassword,
+  readonly,
+  homePassKey,
+  validation,
+  input_type,
+  key_down,
+  number_down,
+}) => {
   return (
-    <div>
-    <div className="w-11/12 m-auto lg:w-10/12 lg:h-screen ">
-      {/* <button onClick={()=>router.push('/')}>
-        payment link
-      </button> */}
-      <div className=" lg:pt-[40px] pt-[30px]   grid grid-cols-1 lg:grid-cols-2">
-        <div className="grid justify-center ">
-          <div>
-            <div className="grid">
-              <Text className=" text-[#FE9534] text-center lg:text-left font-bold text-[30px] lg:text-[40px] grid  ">
-                Welcome  Admin!
-              </Text>
-              <p className=" text-[16px] xl:text-[17px] mb-[32px] lg:pt-[20px] pt-[10px] font-medium text-shadow">
-                Carefully input {" "}
-                <span className=" text-[#FE9534]">all details </span> to register as an admin.
-              </p>
-            </div>
-            <div className=" mt-[30px] rounded-lg w-fit lg:block hidden ">
-              <Image             
-                alt=""
-                src={signIn}
-                className="rounded-lg h-fit "
-              />
-            </div>
-          </div>
-        </div>
-        <div className=" lg:mt-[55px] lg:w-10/12 w-full m-auto">
-        <Box>
-          <Text className=" text-[30px] text-center font-semibold text-[#FE9534] lg:grid hidden">Login</Text>
+    <Box className="full">
+      <form>
+        <Text
+          className={` text-[16px] lg:text-[18px] font-semibold ${labelStyle}`}
+        >
+          {labeling}
+        </Text>
+        <Box
+          // border={"1px"}
+          // borderColor={"#031966"}
+          // borderRadius={"10px"}
+          className="mt-[8px]  w-full border-2 rounded-lg bg-[#FBFBFB] gap-x-2 flex items-center"
+        >
+          <Input
+            border={"1px"}
+            borderColor={"#CDD8FE"}
+            borderRadius={"10px"}
+            size={["md", "lg"]}
+            fontSize={15}
+            // border={"none"}
+            //  {...register(names,validation)}
+            onInput={changes}
+            id={names}
+            className={` text-[12px] pl-3 lg:text-[14px] hover:bg-[#031966] ${
+              values ? "bg-[#CDD8FE]" : ""
+            } duration-500 ${inputStyle ? inputStyle : "h-[48px]"}   w-full`}
+            placeholder={placingtext}
+            name={names}
+            onChange={changes}
+            value={values}
+            type={
+              showPassword || homePassKey ? "password" : "text" || input_type
+            }
+            readOnly={readonly ? true : false}
+            autoComplete="off"
+            data-autocomplete="off"
+            onKeyDown={(e) => {
+              if (
+                key_down &&
+                !/^[A-Za-z\s]+$/.test(e.key) &&
+                e.key !== "Backspace"
+              ) {
+                e.preventDefault(); // ✅ Prevents non-text input
+              }
+              if (
+                number_down &&
+                !/^[0-9]$/.test(e.key) &&
+                e.key !== "Backspace"
+              ) {
+                e.preventDefault(); // ✅ Prevents non-numeric input
+              }
+            }}
+          />
         </Box>
-          <div className=" mt-[30px] lg:mt-[30px]">         
-              <div className=" grid gap-y-[20px]">
-                <ChakraInputs
-                label={'First Name'}
-                 values={signUpDetails.firstName} handleChange={handleSignInChange} names={'firstName'} placing={'Please input First name'} icon={<svg
-  width="20"
-  height="20"
-  viewBox="0 0 20 20"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    fillRule="evenodd"
-    clipRule="evenodd"
-    d="M15.8323 17.5C17.6732 17.5 19.1656 16.0076 19.1656 14.1667V6.68557C19.1659 6.67283 19.1659 6.66005 19.1656 6.64725V5.83333C19.1656 3.99238 17.6732 2.5 15.8323 2.5H4.16559C2.32464 2.5 0.832253 3.99238 0.832253 5.83333V6.64726C0.831957 6.66005 0.831958 6.67282 0.832253 6.68557V14.1667C0.832253 16.0076 2.32464 17.5 4.16559 17.5H15.8323ZM2.49892 14.1667C2.49892 15.0871 3.24511 15.8333 4.16559 15.8333H15.8323C16.7527 15.8333 17.4989 15.0871 17.4989 14.1667V7.89753L11.2369 10.4023C10.4422 10.7202 9.55565 10.7202 8.76095 10.4023L2.49892 7.89753V14.1667ZM10.6179 8.85488L17.4989 6.10247V5.83333C17.4989 4.91286 16.7527 4.16667 15.8323 4.16667H4.16559C3.24511 4.16667 2.49892 4.91286 2.49892 5.83333V6.10247L9.37993 8.85488C9.77729 9.01382 10.2206 9.01382 10.6179 8.85488Z"
-    fill="#A5A6AB"
-  />
-</svg>
-} 
-                />
-                <ChakraInputs
-                label={'Last Name'}
-                 values={signUpDetails.lastName} handleChange={handleSignInChange} names={'lastName'} placing={'Please input lastName'} icon={<svg
-  width="20"
-  height="20"
-  viewBox="0 0 20 20"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    fillRule="evenodd"
-    clipRule="evenodd"
-    d="M15.8323 17.5C17.6732 17.5 19.1656 16.0076 19.1656 14.1667V6.68557C19.1659 6.67283 19.1659 6.66005 19.1656 6.64725V5.83333C19.1656 3.99238 17.6732 2.5 15.8323 2.5H4.16559C2.32464 2.5 0.832253 3.99238 0.832253 5.83333V6.64726C0.831957 6.66005 0.831958 6.67282 0.832253 6.68557V14.1667C0.832253 16.0076 2.32464 17.5 4.16559 17.5H15.8323ZM2.49892 14.1667C2.49892 15.0871 3.24511 15.8333 4.16559 15.8333H15.8323C16.7527 15.8333 17.4989 15.0871 17.4989 14.1667V7.89753L11.2369 10.4023C10.4422 10.7202 9.55565 10.7202 8.76095 10.4023L2.49892 7.89753V14.1667ZM10.6179 8.85488L17.4989 6.10247V5.83333C17.4989 4.91286 16.7527 4.16667 15.8323 4.16667H4.16559C3.24511 4.16667 2.49892 4.91286 2.49892 5.83333V6.10247L9.37993 8.85488C9.77729 9.01382 10.2206 9.01382 10.6179 8.85488Z"
-    fill="#A5A6AB"
-  />
-</svg>
-} 
-                />
-                <ChakraInputs
-                label={'Email'}
-                 values={signUpDetails.email} handleChange={handleSignInChange} names={'email'} placing={'Email'} icon={<svg
-  width="20"
-  height="20"
-  viewBox="0 0 20 20"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    fillRule="evenodd"
-    clipRule="evenodd"
-    d="M15.8323 17.5C17.6732 17.5 19.1656 16.0076 19.1656 14.1667V6.68557C19.1659 6.67283 19.1659 6.66005 19.1656 6.64725V5.83333C19.1656 3.99238 17.6732 2.5 15.8323 2.5H4.16559C2.32464 2.5 0.832253 3.99238 0.832253 5.83333V6.64726C0.831957 6.66005 0.831958 6.67282 0.832253 6.68557V14.1667C0.832253 16.0076 2.32464 17.5 4.16559 17.5H15.8323ZM2.49892 14.1667C2.49892 15.0871 3.24511 15.8333 4.16559 15.8333H15.8323C16.7527 15.8333 17.4989 15.0871 17.4989 14.1667V7.89753L11.2369 10.4023C10.4422 10.7202 9.55565 10.7202 8.76095 10.4023L2.49892 7.89753V14.1667ZM10.6179 8.85488L17.4989 6.10247V5.83333C17.4989 4.91286 16.7527 4.16667 15.8323 4.16667H4.16559C3.24511 4.16667 2.49892 4.91286 2.49892 5.83333V6.10247L9.37993 8.85488C9.77729 9.01382 10.2206 9.01382 10.6179 8.85488Z"
-    fill="#A5A6AB"
-  />
-</svg>
-} 
-                />
-              </div>
-              <div className=" mt-[24px] lg:mt-[22px]">
-                <ChakraInputs
-                label={'Password'}
-                 password values={signUpDetails.password} handleChange={handleSignInChange} names={'password'} placing={'Password'} icon={<svg
-  width="20"
-  height="20"
-  viewBox="0 0 20 20"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M10.8346 12.4997C10.8346 12.0394 10.4615 11.6663 10.0013 11.6663C9.54106 11.6663 9.16797 12.0394 9.16797 12.4997V14.1663C9.16797 14.6266 9.54106 14.9997 10.0013 14.9997C10.4615 14.9997 10.8346 14.6266 10.8346 14.1663V12.4997Z"
-    fill="#A5A6AB"
-    fillOpacity="0.88"
-  />
-  <path
-    fillRule="evenodd"
-    clipRule="evenodd"
-    d="M15.0013 5.83301C15.0013 3.07158 12.7627 0.833008 10.0013 0.833008C7.23988 0.833008 5.0013 3.07158 5.0013 5.83301V7.49967C3.16035 7.49967 1.66797 8.99206 1.66797 10.833V15.833C1.66797 17.674 3.16035 19.1663 5.0013 19.1663H15.0013C16.8423 19.1663 18.3346 17.674 18.3346 15.833V10.833C18.3346 8.99206 16.8423 7.49967 15.0013 7.49967V5.83301ZM6.66797 5.83301C6.66797 3.99206 8.16035 2.49967 10.0013 2.49967C11.8423 2.49967 13.3346 3.99206 13.3346 5.83301V7.49967H6.66797V5.83301ZM3.33464 10.833C3.33464 9.91253 4.08083 9.16634 5.0013 9.16634H15.0013C15.9218 9.16634 16.668 9.91253 16.668 10.833V15.833C16.668 16.7535 15.9218 17.4997 15.0013 17.4997H5.0013C4.08083 17.4997 3.33464 16.7535 3.33464 15.833V10.833Z"
-    fill="#A5A6AB"
-    fillOpacity="0.88"
-  />
-</svg>
+      </form>
+    </Box>
+  );
+};
 
-}
-                />
-              </div>
-               <div className=" mt-[24px] lg:mt-[22px]">
-                <ChakraInputs
-                label={'Confirm Password'}
-                 password values={signUpDetails.confirm_password} handleChange={handleSignInChange} names={'confirm_password'} placing={'Please input Confirm Password'} icon={<svg
-  width="20"
-  height="20"
-  viewBox="0 0 20 20"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M10.8346 12.4997C10.8346 12.0394 10.4615 11.6663 10.0013 11.6663C9.54106 11.6663 9.16797 12.0394 9.16797 12.4997V14.1663C9.16797 14.6266 9.54106 14.9997 10.0013 14.9997C10.4615 14.9997 10.8346 14.6266 10.8346 14.1663V12.4997Z"
-    fill="#A5A6AB"
-    fillOpacity="0.88"
-  />
-  <path
-    fillRule="evenodd"
-    clipRule="evenodd"
-    d="M15.0013 5.83301C15.0013 3.07158 12.7627 0.833008 10.0013 0.833008C7.23988 0.833008 5.0013 3.07158 5.0013 5.83301V7.49967C3.16035 7.49967 1.66797 8.99206 1.66797 10.833V15.833C1.66797 17.674 3.16035 19.1663 5.0013 19.1663H15.0013C16.8423 19.1663 18.3346 17.674 18.3346 15.833V10.833C18.3346 8.99206 16.8423 7.49967 15.0013 7.49967V5.83301ZM6.66797 5.83301C6.66797 3.99206 8.16035 2.49967 10.0013 2.49967C11.8423 2.49967 13.3346 3.99206 13.3346 5.83301V7.49967H6.66797V5.83301ZM3.33464 10.833C3.33464 9.91253 4.08083 9.16634 5.0013 9.16634H15.0013C15.9218 9.16634 16.668 9.91253 16.668 10.833V15.833C16.668 16.7535 15.9218 17.4997 15.0013 17.4997H5.0013C4.08083 17.4997 3.33464 16.7535 3.33464 15.833V10.833Z"
-    fill="#A5A6AB"
-    fillOpacity="0.88"
-  />
-</svg>
+export const FileUpLoad = ({
+  header,
+  names,
+  verificationData,
+  setVerificationData,
+  validation,
+  file_instruct,
+}) => {
+  const [file_name, set_file_name] = useState();
+  const fileRef = useRef(null);
+  const fileUploadFunc = () => {
+    fileRef?.current?.click();
+  };
+  const handlefilechange = (e) => {
+    const { name, type, value, files } = e.target;
+    const file = e.target.files[0];
+    if (file) {
+      set_file_name(file.name);
+    } else {
+      set_file_name("");
+    }
+    setVerificationData((prevData) => ({
+      ...prevData,
+      [name]: type === "file" ? files[0] : value || "", // Ensure no undefined values
+    }));
+  };
+  return (
+    <Box>
+      <Text className=" lg:text-[16px] text-[14px] font-bold text-center">
+        {header}
+      </Text>
+      <Box
+        cursor={"pointer"}
+        onClick={fileUploadFunc}
+        border={"1px"}
+        borderColor={"#CDD8FE"}
+        borderRadius={"10px"}
+        className="border border-dotted rounded-lg mt-[8px] lg:w-[288px] w-full h-full"
+      >
+        <Box className="grid justify-center mt-[16px]">
+          <Image alt="" src={upload} />
+        </Box>
+        <Box className="text-center mt-2 text-[#98A2B3] w-11/12 m-auto ">
+          <Text className=" text-[10px] lg:text-[12px]">
+            Please, upload the image of your CAC Certificate PNG, JPG (max. 5mb)
+          </Text>
+          <Text className="mt-2 mb-2  text-[18px]">OR</Text>
+          <Box className="grid justify-center ">
+            <button
+              onClick={fileUploadFunc}
+              className=" text-center grid items-center mb-2 text-[14px] text-white rounded-lg bg-[#EB5017] hover:bg-[#031966] duration-500 w-[118px] h-[36px]"
+            >
+              <Text className=" text-[18px]">Browse Files</Text>
+            </button>
+          </Box>
+        </Box>
+        <Box className=" pb-[10px]">
+          <Text className=" lg:text-[15px] text-[12px] text-center">
+            {file_name}
+          </Text>
+        </Box>
+        <Box className="hidden ">
+          <input
+            type="file"
+            ref={fileRef}
+            name={names}
+            onChange={handlefilechange}
+          />
+        </Box>
+      </Box>
+      {/* {errors?.[names]?.message && (
+  <h1 className="text-red-400 text-[12px] font-semibold">
+    <span>{errors[names].message}</span>
+  </h1>
+)} */}
+    </Box>
+  );
+};
+export default function Home() {
+  const router = useRouter();
+  const toast = useToast();
+  const formdata = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+  };
+  const [signUpDetails, setSignUpDetails] = useState(formdata);
 
-}
-                />
-              </div>
-              <div className="flex justify-center w-full ">
-                <div className=" mt-[56px] w-10/12 m-auto lg:w-fit">
-                  <Button
-                  isLoading={signUpLoader}
-                  onClick={submitLogin}
-                  backgroundColor={'#031966'}
-                  color={'white'}
-                  _hover={{shadow:'md',
-                    backgroundColor:'#FE9534'
-                  }}
-                    className=" bg-[#031966] hover:bg-[#FE9534] hover:shadow-md duration-500 text-white border flex justify-center shadow-xl items-center w-full lg:w-[420px] h-[48px] rounded-full border-[#FE9534]"
-                  >
-                      Sign up                 
-                  </Button>
-                </div>
-              </div>
-           
-          </div>
-          <div className="flex justify-center ">
-            <div className=" mt-[20px] mb-[40px]">
-              <h1>
-                You already have an account?{" "}
-                <span className=" text-[#031966] font-bold">
-                  <button onClick={() => {
-                    router.push("/")}}>
-                    Sign in Here
-                  </button>
-                </span>{" "}
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
+  const handleSignInChange = (e) => {
+    setSignUpDetails({ ...signUpDetails, [e.target.name]: e.target.value });
+  };
+  const [signUpLoader, setSignUpLoader] = useState(false);
+  const submitLogin = () => {
+    setSignUpLoader(true);
+    console.log(signUpDetails);
+    const formData = new FormData();
+    formData.append("firstName", signUpDetails.firstName);
+    formData.append("email", signUpDetails.lastName);
+    formData.append("email", signUpDetails.email);
+    formData.append("password", signUpDetails.password);
+    formData.append("email", signUpDetails.confirm_password);
+  };
+  return (
+    <Box className="w-11/12 m-auto ">
+      <Box className=" flex items-center justify-between lg:mt-[10px] mt-[20px]">
+        {/* <BackButton buttonText={"Go back"} /> */}
+        <Text className=" lg:text-[24px] text-[#FE9534] text-[16px] font-bold">
+          Courier Company
+        </Text>
+      </Box>
+      <Box className="text-center "></Box>
+      <Box
+        border={"1px"}
+        borderColor={"#031966"}
+        borderRadius={"10px"}
+        className=" lg:mt-[30px] mt-[20px] lg:border lg:border-[#031966] rounded-xl lg:w-6/12 max-w-[871px] w-full m-auto lg:mb-[50px] mb-[36.63px]"
+      >
+        <Box className=" lg:mt-[25px] text-[24px]">
+          <h1 className=" lg:hidden font-bold text-[20px]">Welcome, </h1>
+          <Text className=" text-[#031966] lg:text-[20px] text-[15px] font-bold lg:text-center lg:mt-[20px] mt-[12px]">
+            Please, provide a valid means of identification
+          </Text>
+          <Box className=" lg:mt-[25px] mt-[24px] grid gap-y-[10px] lg:w-10/12 w-full m-auto">
+            <ChakraInputs
+              labeling={"Business Name"}
+              placingtext={"Enter your  Business name"}
+            />
+            <ChakraInputs
+              labeling={"Business Registration Number"}
+              placingtext={"Enter your  business registration number"}
+              i
+            />
+            <ChakraInputs
+              labeling={`Company’s contact`}
+              placingtext={"Enter your business registration number"}
+              i
+            />
+          </Box>
+          <Box className="grid justify-center mt-[25px] w-9/12 lg:w-full m-auto mb-[20px] ">
+            <FileUpLoad header={"Upload CAC Certificate"} />
+          </Box>
+        </Box>
+        <Box className="flex items-center gap-x-2 pt-[24px] lg:w-10/12 m-auto ">
+          <Box className="flex items-center ">
+            <input type="checkbox" className=" h-[18px] w-[18px]" />
+          </Box>
+          <h1 className=" text-[12px] lg:text-[14px]">
+            I hereby certify that the provided information is true and accurate.
+          </h1>
+        </Box>
+        <Box className="lg:grid lg:justify-center w-full lg:mt-[48px] mt-[40px] lg:mb-[48px] mb-[36.63px] max-w-[419px] m-auto">
+          <Button
+            onClick={() => router.push("/../Client_dashboard")}
+            backgroundColor={"#031966"}
+            color={"white"}
+            _hover={{
+              backgroundColor: "#FE9534",
+            }}
+            className={`hover:bg-[#FE9534] duration-500 hover:text-white text-white border lg:grid  lg:justify-center shadow-xl items-center w-full lg:w-[420px] h-[48px] rounded-full border-[#FE9534]`}
+          >
+            <Text>Submit</Text>
+          </Button>
+        </Box>
+      </Box>
+      {/* {openSuccessfull? <SuccessDelivery firstBody={`Your Company’s Verification was successful.
+Please, click proceed to enter your Bank datails`} openSuccessfull={openSuccessfull} setOpenSuccessfull={setOpenSuccessfull}  bodyfunction={bankRoute} />:''} */}
+    </Box>
   );
 }

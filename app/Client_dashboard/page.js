@@ -19,7 +19,7 @@ import { GiCardPickup } from "react-icons/gi";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { MdSmsFailed } from "react-icons/md";
 import { useRouter } from "next/navigation";
-import OrdersTable from "../Components/Table/OrdersTable";
+import ClientOrdersTable from "../Components/Table/ClientOrderTable";
 import { Select } from "@chakra-ui/react";
 import { MenuButton, MenuList, Menu, MenuItem } from "@chakra-ui/react";
 import ClientTable from "../Components/Table/ClientTable";
@@ -45,14 +45,14 @@ const Data = [
     packageNumber: "45",
     location: "Ojodu Berger, Lagos",
   },
-  {
-    id: 3,
-    name: "Alex Sunday",
-    status: "iun transit",
-    orderCode: "ORD094532",
-    packageNumber: "45",
-    location: "Ojodu Berger, Lagos",
-  },
+  // {
+  //   id: 3,
+  //   name: "Alex Sunday",
+  //   status: "iun transit",
+  //   orderCode: "ORD094532",
+  //   packageNumber: "45",
+  //   location: "Ojodu Berger, Lagos",
+  // },
 ];
 export const AddCourier = () => {
   return (
@@ -999,7 +999,7 @@ function Page() {
             <AddCourier />
           </Box>
         </Box>
-        <Box className=" grid lg:grid-cols-3 grid-cols-1 gap-y-[20px] mt-[20px] gap-x-[10px] lg:gap-x-[30px]">
+        <Box className=" grid lg:grid-cols-2 grid-cols-1 gap-y-[20px] mt-[20px] gap-x-[10px] lg:gap-x-[30px]">
           {Data.map((item) => {
             return (
               <Box key={item.id}>
@@ -1079,7 +1079,7 @@ function Page() {
             <TabPanel>
               <Box className="lg:pl-[20px] lg:pr-[20px] pl-[10px] pr-[10px] lg:pt-[20px] pt-[10px]">
                 <Box className=" mt-[10px] lg:mt-[20px] w-full">
-                  <OrdersTable Client />
+                  <ClientOrdersTable Client />
                 </Box>
               </Box>
               {/* <Box
@@ -1118,7 +1118,7 @@ function Page() {
             </TabPanel>
             <TabPanel>
               <Box className=" mt-[20px] pl-[20px] pr-[20px]">
-                <OrdersTable Client />
+                <ClientOrdersTable Client />
               </Box>
             </TabPanel>
             <TabPanel>
