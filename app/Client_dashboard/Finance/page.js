@@ -6,7 +6,7 @@ import FinanceTable from "@/app/Components/Table/FinanceTable";
 import ClientTable from "@/app/Components/Table/ClientTable";
 import DashboardCard from "@/app/Components/Card/DashboardCard";
 import { BsBorderStyle } from "react-icons/bs";
-import { Clients_Overview } from "../Partners/page";
+import { Clients_Overview } from "../Delivery/page";
 function Page() {
   return (
     <div className="  min-h-screen bg-gray-100">

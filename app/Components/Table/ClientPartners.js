@@ -6,10 +6,33 @@ import { IconButton } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Jumia from "../../../public/cardAvatar.svg";
+import ClientAssignedTable from "./ClientAssigned";
+import ModalComponent from "./ModalComponent";
+import CourierModal from "../Modal/CourierModal";
 //  import imp from '../../Dashboard/OrderDetails/${}'
 
 function ClientPartnersTable({ setDisplayBtn }) {
   const router = useRouter();
+  const [Assigned, setAssigned] = useState(false);
+  const AssignedFunc = () => {
+    setAssigned(!Assigned);
+  };
+  const [Pending, setPending] = useState(false);
+  const PendingFunc = () => {
+    setPending(!Pending);
+  };
+  const [Picked, setPicked] = useState(false);
+  const PickedFunc = () => {
+    setPicked(!Picked);
+  };
+  const [Completed, setCompleted] = useState(false);
+  const CompletedFunc = () => {
+    setCompleted(!Completed);
+  };
+  const [Riders, setRiders] = useState(false);
+  const RidersFunc = () => {
+    setRiders(!Riders);
+  };
   const column = [
     {
       name: "Date",
@@ -18,7 +41,11 @@ function ClientPartnersTable({ setDisplayBtn }) {
     {
       name: "Riders",
       selector: (row) => (
-        <Box className=" flex items-center gap-x-[5px]">
+        <Box
+          cursor={"pointer"}
+          onClick={RidersFunc}
+          className=" flex items-center gap-x-[5px]"
+        >
           <Image src={row.icon} alt="" />
           <Text className="text-[12px]">{row.client}</Text>
         </Box>
@@ -35,20 +62,36 @@ function ClientPartnersTable({ setDisplayBtn }) {
     },
     {
       name: "Assigned",
-      selector: (row) => <Text className="text-[12px]">{row.assigned}</Text>,
+      selector: (row) => (
+        <Box cursor={"pointer"} onClick={AssignedFunc}>
+          <Text className="text-[12px]">{row.assigned}</Text>
+        </Box>
+      ),
     },
     {
       name: "Pending",
-      selector: (row) => <Text className="text-[12px]">{row.returned}</Text>,
+      selector: (row) => (
+        <Box cursor={"pointer"} onClick={PendingFunc}>
+          <Text className="text-[12px]">{row.returned}</Text>
+        </Box>
+      ),
     },
     {
       name: "Picked",
-      selector: (row) => <Text className="text-[12px]">{row.picked}</Text>,
+      selector: (row) => (
+        <Box cursor={"pointer"} onClick={PickedFunc}>
+          <Text className="text-[12px]">{row.picked}</Text>
+        </Box>
+      ),
     },
 
     {
       name: "Completed",
-      selector: (row) => <Text className="text-[12px]">{row.completed}</Text>,
+      selector: (row) => (
+        <Box cursor={"pointer"} onClick={CompletedFunc}>
+          <Text className="text-[12px]">{row.completed}</Text>
+        </Box>
+      ),
     },
   ];
   const Data = [
@@ -179,6 +222,48 @@ function ClientPartnersTable({ setDisplayBtn }) {
           />
         </Box>
       </Box>
+      {Riders && (
+        <CourierModal
+          setOpenSuccessfull={RidersFunc}
+          openSuccessfull={Riders}
+        />
+      )}
+      {Assigned && (
+        <ModalComponent
+          setOpenSuccessfull={AssignedFunc}
+          openSuccessfull={Assigned}
+          modal_title={"Assigned"}
+        >
+          <ClientAssignedTable />
+        </ModalComponent>
+      )}
+      {Pending && (
+        <ModalComponent
+          setOpenSuccessfull={PendingFunc}
+          openSuccessfull={Pending}
+          modal_title={"Pending"}
+        >
+          <ClientAssignedTable />
+        </ModalComponent>
+      )}
+      {Picked && (
+        <ModalComponent
+          setOpenSuccessfull={PickedFunc}
+          openSuccessfull={Picked}
+          modal_title={"Picked"}
+        >
+          <ClientAssignedTable />
+        </ModalComponent>
+      )}
+      {Completed && (
+        <ModalComponent
+          setOpenSuccessfull={CompletedFunc}
+          openSuccessfull={Completed}
+          modal_title={"Completed"}
+        >
+          <ClientAssignedTable status={"Completed"} />
+        </ModalComponent>
+      )}
     </Box>
   );
 }

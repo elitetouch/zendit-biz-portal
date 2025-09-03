@@ -612,6 +612,96 @@ function Page() {
             </Box>
             <Box>
               <DashboardCard
+                bgColor={"#6FF79121"}
+                textColor={"#1EBD5D"}
+                routeFunc={() => setItemsPage(4)}
+                icon={
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14.7583 2.83594H9.87893C8.1568 2.83594 7.77411 3.69701 7.55406 4.75899L6.76953 8.50938H17.8677L17.0832 4.75899C16.8631 3.69701 16.4804 2.83594 14.7583 2.83594Z"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M19.2443 14.6231C19.3208 15.4364 18.6702 16.1348 17.8379 16.1348H16.5367C15.7904 16.1348 15.6852 15.8191 15.5512 15.4173L15.4077 15.0058C15.2164 14.4413 15.092 14.0586 14.0874 14.0586H10.5379C9.54293 14.0586 9.38985 14.4892 9.21764 15.0058L9.07413 15.4173C8.94019 15.8095 8.83495 16.1348 8.08869 16.1348H6.78753C5.95517 16.1348 5.30459 15.4364 5.38112 14.6231L5.77339 10.3944C5.86906 9.35154 6.06997 8.5 7.88777 8.5H16.7376C18.5554 8.5 18.7563 9.35154 18.852 10.3944L19.2443 14.6231Z"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.76873 6.42383H6.07031"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M18.5617 6.42383H17.8633"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M8.15625 11.2852H10.2324"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M14.4023 11.2852H16.4785"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M12.3164 17.1875V18.1442"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M12.3164 21.0156V21.9724"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M3.70674 18.1445L2.75 21.9715"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M20.9297 18.1445L21.8864 21.9715"
+                      stroke="#1EBD5D"
+                      stroke-width="1.43511"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                }
+                title={"Unassigned"}
+                Total_number={"50"}
+                formPage={itemsPage}
+              />
+            </Box>
+            <Box>
+              <DashboardCard
                 textColor={"#FE9534"}
                 bgColor={"#F7C56F33"}
                 routeFunc={() => setItemsPage(3)}
@@ -791,96 +881,6 @@ function Page() {
               />
             </Box>
 
-            <Box>
-              <DashboardCard
-                bgColor={"#6FF79121"}
-                textColor={"#1EBD5D"}
-                routeFunc={() => setItemsPage(4)}
-                icon={
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M14.7583 2.83594H9.87893C8.1568 2.83594 7.77411 3.69701 7.55406 4.75899L6.76953 8.50938H17.8677L17.0832 4.75899C16.8631 3.69701 16.4804 2.83594 14.7583 2.83594Z"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M19.2443 14.6231C19.3208 15.4364 18.6702 16.1348 17.8379 16.1348H16.5367C15.7904 16.1348 15.6852 15.8191 15.5512 15.4173L15.4077 15.0058C15.2164 14.4413 15.092 14.0586 14.0874 14.0586H10.5379C9.54293 14.0586 9.38985 14.4892 9.21764 15.0058L9.07413 15.4173C8.94019 15.8095 8.83495 16.1348 8.08869 16.1348H6.78753C5.95517 16.1348 5.30459 15.4364 5.38112 14.6231L5.77339 10.3944C5.86906 9.35154 6.06997 8.5 7.88777 8.5H16.7376C18.5554 8.5 18.7563 9.35154 18.852 10.3944L19.2443 14.6231Z"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M6.76873 6.42383H6.07031"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M18.5617 6.42383H17.8633"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M8.15625 11.2852H10.2324"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M14.4023 11.2852H16.4785"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M12.3164 17.1875V18.1442"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M12.3164 21.0156V21.9724"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M3.70674 18.1445L2.75 21.9715"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M20.9297 18.1445L21.8864 21.9715"
-                      stroke="#1EBD5D"
-                      stroke-width="1.43511"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                }
-                title={"Unassigned"}
-                Total_number={"50"}
-                formPage={itemsPage}
-              />
-            </Box>
             <Box>
               <DashboardCard
                 textColor={"#1EBD5D"}

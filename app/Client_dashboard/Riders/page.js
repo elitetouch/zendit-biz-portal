@@ -7,10 +7,11 @@ import { AddCourier } from "../page";
 export const Clients_Overview = () => {
   return (
     <Box className=" flex gap-x-[10px] pt-[20px] pl-[20px] pr-[20px]">
-      <Box className=" grid lg:flex justify-between lg:grid-cols-2 grid-cols-2 gap-y-[20px] w-full gap-x-[20px]">
+      <Box className=" grid lg:flex justify-between lg:grid-cols-2 grid-cols-1 gap-y-[20px] w-full gap-x-[20px]">
         <Box className=" lg:w-6/12">
           <DashboardCard
             partners
+            Add_Riders
             textColor={"#031966"}
             bgColor={"#3D25CF17"}
             icon={
@@ -58,11 +59,6 @@ export const Clients_Overview = () => {
             title={"Total"}
             Total_number={"300"}
           />
-        </Box>
-        <Box className=" grid w-full justify-end">
-          <Box>
-            <AddCourier />
-          </Box>
         </Box>
       </Box>
       <Box></Box>

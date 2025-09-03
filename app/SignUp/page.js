@@ -1,173 +1,12 @@
 "use client";
 import Image from "next/image";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Button, useToast } from "@chakra-ui/react";
+import ChakraInputs from "../Components/Inputs/ChakraInputs";
 import signIn from "../../public/signin.jpg";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Button } from "@chakra-ui/react";
-import { useToast } from "@chakra-ui/react";
-import upload from "../../public/upload.png";
-import { Input } from "@chakra-ui/react";
-import { useRef } from "react";
-//import imp from '../Client_dashboard'
-export const ChakraInputs = ({
-  labeling,
-  placingtext,
-  names,
-  changes,
-  values,
-  icon,
-  secIcon,
-  labelStyle,
-  inputStyle,
-  secIconFunc,
-  showPassword,
-  readonly,
-  homePassKey,
-  validation,
-  input_type,
-  key_down,
-  number_down,
-}) => {
-  return (
-    <Box className="full">
-      <form>
-        <Text
-          className={` text-[16px] lg:text-[18px] font-semibold ${labelStyle}`}
-        >
-          {labeling}
-        </Text>
-        <Box
-          // border={"1px"}
-          // borderColor={"#031966"}
-          // borderRadius={"10px"}
-          className="mt-[8px]  w-full border-2 rounded-lg bg-[#FBFBFB] gap-x-2 flex items-center"
-        >
-          <Input
-            border={"1px"}
-            borderColor={"#CDD8FE"}
-            borderRadius={"10px"}
-            size={["md", "lg"]}
-            fontSize={15}
-            // border={"none"}
-            //  {...register(names,validation)}
-            onInput={changes}
-            id={names}
-            className={` text-[12px] pl-3 lg:text-[14px] hover:bg-[#031966] ${
-              values ? "bg-[#CDD8FE]" : ""
-            } duration-500 ${inputStyle ? inputStyle : "h-[48px]"}   w-full`}
-            placeholder={placingtext}
-            name={names}
-            onChange={changes}
-            value={values}
-            type={
-              showPassword || homePassKey ? "password" : "text" || input_type
-            }
-            readOnly={readonly ? true : false}
-            autoComplete="off"
-            data-autocomplete="off"
-            onKeyDown={(e) => {
-              if (
-                key_down &&
-                !/^[A-Za-z\s]+$/.test(e.key) &&
-                e.key !== "Backspace"
-              ) {
-                e.preventDefault(); // ✅ Prevents non-text input
-              }
-              if (
-                number_down &&
-                !/^[0-9]$/.test(e.key) &&
-                e.key !== "Backspace"
-              ) {
-                e.preventDefault(); // ✅ Prevents non-numeric input
-              }
-            }}
-          />
-        </Box>
-      </form>
-    </Box>
-  );
-};
 
-export const FileUpLoad = ({
-  header,
-  names,
-  verificationData,
-  setVerificationData,
-  validation,
-  file_instruct,
-}) => {
-  const [file_name, set_file_name] = useState();
-  const fileRef = useRef(null);
-  const fileUploadFunc = () => {
-    fileRef?.current?.click();
-  };
-  const handlefilechange = (e) => {
-    const { name, type, value, files } = e.target;
-    const file = e.target.files[0];
-    if (file) {
-      set_file_name(file.name);
-    } else {
-      set_file_name("");
-    }
-    setVerificationData((prevData) => ({
-      ...prevData,
-      [name]: type === "file" ? files[0] : value || "", // Ensure no undefined values
-    }));
-  };
-  return (
-    <Box>
-      <Text className=" lg:text-[16px] text-[14px] font-bold text-center">
-        {header}
-      </Text>
-      <Box
-        cursor={"pointer"}
-        onClick={fileUploadFunc}
-        border={"1px"}
-        borderColor={"#CDD8FE"}
-        borderRadius={"10px"}
-        className="border border-dotted rounded-lg mt-[8px] lg:w-[288px] w-full h-full"
-      >
-        <Box className="grid justify-center mt-[16px]">
-          <Image alt="" src={upload} />
-        </Box>
-        <Box className="text-center mt-2 text-[#98A2B3] w-11/12 m-auto ">
-          <Text className=" text-[10px] lg:text-[12px]">
-            Please, upload the image of your CAC Certificate PNG, JPG (max. 5mb)
-          </Text>
-          <Text className="mt-2 mb-2  text-[18px]">OR</Text>
-          <Box className="grid justify-center ">
-            <button
-              onClick={fileUploadFunc}
-              className=" text-center grid items-center mb-2 text-[14px] text-white rounded-lg bg-[#EB5017] hover:bg-[#031966] duration-500 w-[118px] h-[36px]"
-            >
-              <Text className=" text-[18px]">Browse Files</Text>
-            </button>
-          </Box>
-        </Box>
-        <Box className=" pb-[10px]">
-          <Text className=" lg:text-[15px] text-[12px] text-center">
-            {file_name}
-          </Text>
-        </Box>
-        <Box className="hidden ">
-          <input
-            type="file"
-            ref={fileRef}
-            name={names}
-            onChange={handlefilechange}
-          />
-        </Box>
-      </Box>
-      {/* {errors?.[names]?.message && (
-  <h1 className="text-red-400 text-[12px] font-semibold">
-    <span>{errors[names].message}</span>
-  </h1>
-)} */}
-    </Box>
-  );
-};
-export default function Home() {
+export default function Page() {
   const router = useRouter();
   const toast = useToast();
   const formdata = {
@@ -184,79 +23,219 @@ export default function Home() {
   };
   const [signUpLoader, setSignUpLoader] = useState(false);
   const submitLogin = () => {
-    setSignUpLoader(true);
-    console.log(signUpDetails);
-    const formData = new FormData();
-    formData.append("firstName", signUpDetails.firstName);
-    formData.append("email", signUpDetails.lastName);
-    formData.append("email", signUpDetails.email);
-    formData.append("password", signUpDetails.password);
-    formData.append("email", signUpDetails.confirm_password);
+    router.push("/../Unboarding");
   };
+
   return (
-    <Box className="w-11/12 m-auto ">
-      <Box className=" flex items-center justify-between lg:mt-[10px] mt-[20px]">
-        {/* <BackButton buttonText={"Go back"} /> */}
-        <Text className=" lg:text-[24px] text-[#FE9534] text-[16px] font-bold">
-          Courier Company
-        </Text>
+    <Box>
+      <Box className="w-11/12 m-auto lg:w-10/12 lg:h-screen ">
+        <Box className=" lg:pt-[40px] pt-[30px]   grid grid-cols-1 lg:grid-cols-2">
+          {/* Left section */}
+          <Box className="grid justify-center ">
+            <Box>
+              <Box className="grid">
+                <Text className=" text-[#FE9534] text-center lg:text-left font-bold text-[30px] lg:text-[40px] grid  ">
+                  Welcome Admin!
+                </Text>
+                <Text className=" text-[16px] xl:text-[17px] mb-[32px] lg:pt-[20px] pt-[10px] font-medium text-shadow">
+                  Carefully input{" "}
+                  <Text as="span" className=" text-[#FE9534]">
+                    all details{" "}
+                  </Text>
+                  to register as an admin.
+                </Text>
+              </Box>
+              <Box className=" mt-[30px] rounded-lg w-fit lg:block hidden ">
+                <Image alt="" src={signIn} className="rounded-lg h-fit " />
+              </Box>
+            </Box>
+          </Box>
+
+          {/* Right section */}
+          <Box className=" lg:mt-[55px] lg:w-10/12 w-full m-auto">
+            <Box>
+              <Text className=" text-[30px] text-center font-semibold text-[#FE9534] lg:grid hidden">
+                Sign Up
+              </Text>
+            </Box>
+            <Box className=" mt-[30px] lg:mt-[30px]">
+              <Box className=" grid gap-y-[20px]">
+                {/* Inputs */}
+                <ChakraInputs
+                  label={"First Name"}
+                  values={signUpDetails.firstName}
+                  handleChange={handleSignInChange}
+                  names={"firstName"}
+                  placing={"Please input First name"}
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#A5A6AB"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5.121 17.804A9 9 0 1118.879 17.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  }
+                />
+                <ChakraInputs
+                  label={"Last Name"}
+                  values={signUpDetails.lastName}
+                  handleChange={handleSignInChange}
+                  names={"lastName"}
+                  placing={"Please input lastName"}
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#A5A6AB"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5.121 17.804A9 9 0 1118.879 17.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  }
+                />
+                <ChakraInputs
+                  label={"Email"}
+                  values={signUpDetails.email}
+                  handleChange={handleSignInChange}
+                  names={"email"}
+                  placing={"Email"}
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#A5A6AB"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  }
+                />
+              </Box>
+
+              <Box className=" mt-[24px] lg:mt-[22px]">
+                <ChakraInputs
+                  label={"Password"}
+                  password
+                  values={signUpDetails.password}
+                  handleChange={handleSignInChange}
+                  names={"password"}
+                  placing={"Password"}
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#A5A6AB"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 17a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 10V8a6 6 0 1112 0v2m-9 0h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6a2 2 0 012-2z"
+                      />
+                    </svg>
+                  }
+                />
+              </Box>
+              <Box className=" mt-[24px] lg:mt-[22px]">
+                <ChakraInputs
+                  label={"Confirm Password"}
+                  password
+                  values={signUpDetails.confirm_password}
+                  handleChange={handleSignInChange}
+                  names={"confirm_password"}
+                  placing={"Please input Confirm Password"}
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#A5A6AB"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 17a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 10V8a6 6 0 1112 0v2m-9 0h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6a2 2 0 012-2z"
+                      />
+                    </svg>
+                  }
+                />
+              </Box>
+
+              <Box className="flex justify-center w-full ">
+                <Box className=" mt-[56px] w-10/12 m-auto lg:w-fit">
+                  <Button
+                    isLoading={signUpLoader}
+                    onClick={submitLogin}
+                    backgroundColor={"#031966"}
+                    color={"white"}
+                    _hover={{ shadow: "md", backgroundColor: "#FE9534" }}
+                    className=" bg-[#031966] hover:bg-[#FE9534] hover:shadow-md duration-500 text-white border flex justify-center shadow-xl items-center w-full lg:w-[420px] h-[48px] rounded-full border-[#FE9534]"
+                  >
+                    Sign up
+                  </Button>
+                </Box>
+              </Box>
+            </Box>
+
+            {/* Already have account */}
+            <Box className="flex justify-center ">
+              <Box className=" mt-[20px] mb-[40px]">
+                <Text>
+                  You already have an account?{" "}
+                  <Text as="span" className=" text-[#031966] font-bold">
+                    <button
+                      onClick={() => {
+                        router.push("/");
+                      }}
+                    >
+                      Sign in Here
+                    </button>
+                  </Text>
+                </Text>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
-      <Box className="text-center "></Box>
-      <Box
-        border={"1px"}
-        borderColor={"#031966"}
-        borderRadius={"10px"}
-        className=" lg:mt-[30px] mt-[20px] lg:border lg:border-[#031966] rounded-xl lg:w-6/12 max-w-[871px] w-full m-auto lg:mb-[50px] mb-[36.63px]"
-      >
-        <Box className=" lg:mt-[25px] text-[24px]">
-          <h1 className=" lg:hidden font-bold text-[20px]">Welcome, </h1>
-          <Text className=" text-[#031966] lg:text-[20px] text-[15px] font-bold lg:text-center lg:mt-[20px] mt-[12px]">
-            Please, provide a valid means of identification
-          </Text>
-          <Box className=" lg:mt-[25px] mt-[24px] grid gap-y-[10px] lg:w-10/12 w-full m-auto">
-            <ChakraInputs
-              labeling={"Business Name"}
-              placingtext={"Enter your  Business name"}
-            />
-            <ChakraInputs
-              labeling={"Business Registration Number"}
-              placingtext={"Enter your  business registration number"}
-              i
-            />
-            <ChakraInputs
-              labeling={`Company’s contact`}
-              placingtext={"Enter your business registration number"}
-              i
-            />
-          </Box>
-          <Box className="grid justify-center mt-[25px] w-9/12 lg:w-full m-auto mb-[20px] ">
-            <FileUpLoad header={"Upload CAC Certificate"} />
-          </Box>
-        </Box>
-        <Box className="flex items-center gap-x-2 pt-[24px] lg:w-10/12 m-auto ">
-          <Box className="flex items-center ">
-            <input type="checkbox" className=" h-[18px] w-[18px]" />
-          </Box>
-          <h1 className=" text-[12px] lg:text-[14px]">
-            I hereby certify that the provided information is true and accurate.
-          </h1>
-        </Box>
-        <Box className="lg:grid lg:justify-center w-full lg:mt-[48px] mt-[40px] lg:mb-[48px] mb-[36.63px] max-w-[419px] m-auto">
-          <Button
-            onClick={() => router.push("/../Client_dashboard")}
-            backgroundColor={"#031966"}
-            color={"white"}
-            _hover={{
-              backgroundColor: "#FE9534",
-            }}
-            className={`hover:bg-[#FE9534] duration-500 hover:text-white text-white border lg:grid  lg:justify-center shadow-xl items-center w-full lg:w-[420px] h-[48px] rounded-full border-[#FE9534]`}
-          >
-            <Text>Submit</Text>
-          </Button>
-        </Box>
-      </Box>
-      {/* {openSuccessfull? <SuccessDelivery firstBody={`Your Company’s Verification was successful.
-Please, click proceed to enter your Bank datails`} openSuccessfull={openSuccessfull} setOpenSuccessfull={setOpenSuccessfull}  bodyfunction={bankRoute} />:''} */}
     </Box>
   );
 }

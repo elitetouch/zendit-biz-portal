@@ -1,12 +1,13 @@
-import { Lato } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Wrapper from "./Components/Wrapper/Wrapper";
 
-const lato = Lato({
+const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["400", "700", "900"], // optional: add '100', '300'
+  weight: ["400", "500", "700"],
+  // variable: '--font-raleway', // optional: use this if you want to apply with CSS variables
 });
 
 export const metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({ children }) {
         {/* 👇 Ensures app fits screen across zoom & display scaling */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`${lato.className} min-h-screen w-full`}>
+      <body className={`${raleway?.className} min-h-screen w-full`}>
         <Suspense fallback={<Loading />}>
           <Wrapper>{children}</Wrapper>
         </Suspense>
